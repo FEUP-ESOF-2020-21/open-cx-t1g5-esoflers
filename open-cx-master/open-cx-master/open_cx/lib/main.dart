@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'AgendApp.dart';
 import 'package:flutter/services.dart';
 
+import 'Screens/Login/login.dart';
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Color.fromRGBO(3, 44, 115, 1), // status bar color
+    statusBarColor: Color(0xFF9CBDCE), // status bar color
   ));
   runApp(MyApp());
 }
@@ -13,14 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ESOF Demo',
+      title: 'Video Session Toolkit Demo',
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(3, 44, 115, 1),
+        primaryColor: Color(0xFF9CBDCE),
       ),
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/yourPage": (context) => YourProject(),
+        "/login": (context) => LoginPage(),
         "/agendAppMain": (context) => AgendAppMain()
       },
     );
@@ -33,14 +35,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Color.fromRGBO(3, 44, 115, 1),
+          color: Color(0xFF9CBDCE),
           child: Stack(
             children: <Widget>[
               Center(
-                  child: Text("openCX",
-                      style: TextStyle(fontSize: 32, color: Colors.white))),
-              MyButton(x: 14, y: 60, title: "Ex", onPressed: () {}),
-              MyButton(x: 40, y: 30, title: "Here", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain")),
+                  child: Text("Video Session Toolkit",
+                      style: TextStyle(fontSize: 32, color: Colors.black))),
+              MyButton(x: 14, y: 60, title: "Login", onPressed: () => Navigator.of(context).pushNamed("/login")),
+              MyButton(x: 40, y: 30, title: "Sign Up", onPressed: () => Navigator.of(context).pushNamed("/signUp")),
               MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
             ],
           ),
