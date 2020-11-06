@@ -10,11 +10,11 @@ class AgendAppMain extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          accentColor: Color(0xFF5b78f5),
-          primaryColor: Color(0xFF5b78f5),
-          cursorColor: Color(0xFF5b78f5),
-          textSelectionColor: Color(0xFF5b78f5),
-          textSelectionHandleColor: Color(0xFF5b78f5),
+          accentColor: Color(0xFF9CBDCE),
+          primaryColor: Color(0xFF9CBDCE),
+          cursorColor: Color(0xFF9CBDCE),
+          textSelectionColor: Color(0xFF9CBDCE),
+          textSelectionHandleColor: Color(0xFF9CBDCE),
           fontFamily: "Ubuntu"),
       home: LoginPage(), //todo MainPage()?
     );

@@ -41,9 +41,9 @@ class HomePage extends StatelessWidget {
               Center(
                   child: Text("Video Session Toolkit",
                       style: TextStyle(fontSize: 32, color: Colors.black))),
-              MyButton(x: 14, y: 60, title: "Login", onPressed: () => Navigator.of(context).pushNamed("/login")),
-              MyButton(x: 40, y: 30, title: "Sign Up", onPressed: () => Navigator.of(context).pushNamed("/signUp")),
-              MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
+              MyButton(x: 40, y: 60, title: "Login", onPressed: () => Navigator.of(context).pushNamed("/login")),
+              MyButton(x: 40, y: 70, title: "Sign Up", onPressed: () => Navigator.of(context).pushNamed("/signUp")),
+              //MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
             ],
           ),
         ),
