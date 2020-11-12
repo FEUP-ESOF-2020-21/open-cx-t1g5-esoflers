@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/login": (context) => LoginPage(),
+        "/signup": (context) => SignUpPage(),
         "/agendAppMain": (context) => AgendAppMain()
       },
     );
@@ -65,7 +66,22 @@ class MyButton extends StatelessWidget {
     return Positioned(
       left: (x / 100) * MediaQuery.of(context).size.width,
       top: (y / 100) * MediaQuery.of(context).size.height,
-      child: FloatingActionButton(
+      child: FlatButton(
+        color: Colors.blue,
+        textColor: Colors.white,
+        disabledColor: Colors.grey,
+        disabledTextColor: Colors.black,
+        padding: EdgeInsets.all(8.0),
+        splashColor: Colors.blueAccent,
+        onPressed: onPressed,
+        child: Text(
+          "Flat Button",
+          style: TextStyle(color: Colors.black),
+        ),
+        heroTag: title,
+      ),
+    );
+      /*child: FloatingActionButton(
         onPressed: onPressed,
         backgroundColor: Colors.white,
         child: Text(
@@ -74,7 +90,7 @@ class MyButton extends StatelessWidget {
         ),
         heroTag: title,
       ),
-    );
+    );*/
   }
 }
 
