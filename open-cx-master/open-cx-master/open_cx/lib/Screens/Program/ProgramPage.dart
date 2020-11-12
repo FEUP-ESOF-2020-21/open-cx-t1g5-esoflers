@@ -82,7 +82,7 @@ class ProgramPageState extends State<ProgramPage> {
                 ListTile(
                     leading: Icon(Icons.alarm_add),
                     title: Text('Create talks'),
-                    onTap: () { Navigator.pop(context); changePage(addTalkPage(talkList), "Create talks"); }
+                    onTap: () { Navigator.pop(context); changePage(UserTalksPage(talkList), "Create talks"); }
                 ),
               ]
           )

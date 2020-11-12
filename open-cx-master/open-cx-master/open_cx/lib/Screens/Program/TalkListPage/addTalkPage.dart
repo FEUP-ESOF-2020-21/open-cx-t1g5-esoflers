@@ -40,7 +40,7 @@ class MyCustomFormState extends State<MyCustomForm> {
          }
         },
         child: Text('Submit'),
-    );
+    )
     // Add TextFormFields and ElevatedButton here.
     ]
     )
