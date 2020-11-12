@@ -10,7 +10,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   bool _isHidden = true;
 
   void _toggleVisibility() {
@@ -25,34 +24,32 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Color(0xFF9CBDCE),
       resizeToAvoidBottomPadding: false,
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/porto.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
         padding: EdgeInsets.only(top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Agendapp',
+              'LOGIN',
               style: TextStyle(
                 fontSize: 50.0,
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
               height: 20.0,
             ),
-            Text(
+            Icon(
+                Icons.account_box,
+                size: 100
+            ),
+            /*Text(
               "‹Programming› 2020",
               style: TextStyle(
                 fontSize: 20.0,
                 color: Colors.white,
               ),
-            ),
+            ),*/
             SizedBox(
               height: 60.0,
             ),
@@ -62,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             buildTextField("Password"),
             SizedBox(
-              height: 20.0,
+              height: 50.0,
             ),
             Container(
               child: Row(
@@ -84,9 +81,25 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            SizedBox(height: 20.0),
-            buildButtonContainer(),
-            SizedBox(
+            SizedBox(height: 170.0),
+            Container(
+              child: Row(
+                  children: <Widget>[
+                    Align(
+                        alignment: Alignment.bottomLeft,
+                        child: buildButtonContainer("CANCEL")
+                    ),
+                    SizedBox(
+                      width: 80.0,
+                    ),
+                    Align(
+                        alignment: Alignment.bottomRight,
+                        child: buildButtonContainer("NEXT")
+                    ),
+                  ],
+              ),
+            ),
+            /*SizedBox(
               height: 10.0,
             ),
             Container(
@@ -116,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
@@ -151,26 +164,27 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget buildButtonContainer() {
+  Widget buildButtonContainer(String name) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           return new MenuPage();
-        }));
+        }
+        )
+        );
       },
       child: Container(
-        height: 56.0,
-        width: MediaQuery.of(context).size.width,
+        height: 40.0,
+        width: MediaQuery.of(context).size.width / 3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: Colors.white,
+          color: Color(0xA6A6A6A6),
         ),
         child: Center(
           child: Text(
-            "Login",
+            name,
             style: TextStyle(
-              color: Color(0xFF283468),
+              color: Colors.black,
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),

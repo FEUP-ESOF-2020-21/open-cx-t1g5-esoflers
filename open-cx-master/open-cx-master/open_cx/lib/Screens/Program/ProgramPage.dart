@@ -79,11 +79,11 @@ class ProgramPageState extends State<ProgramPage> {
                   title: Text('Favorite talks'),
                   onTap: () { Navigator.pop(context); changePage(UserTalksPage(talkList), "Favorite talks"); }
                 ),
-                ListTile(
+                /*ListTile(
                     leading: Icon(Icons.alarm_add),
                     title: Text('Create talks'),
                     onTap: () { Navigator.pop(context); changePage(addTalkPage(talkList), "Create talks"); }
-                ),
+                ),*/
               ]
           )
       ),

@@ -19,36 +19,37 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF283468),
+      backgroundColor: Color(0xFF9CBDCE),
       resizeToAvoidBottomPadding: false,
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/porto.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
         padding:
             EdgeInsets.only(top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Sign Up',
+              'SIGN UP',
               style: TextStyle(
                 fontSize: 50.0,
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: 40.0,
+              height: 20.0,
+            ),
+            Icon(
+                Icons.person_add,
+                size: 100
+            ),
+            SizedBox(
+              height: 60.0,
             ),
             buildTextField("Email"),
             SizedBox(
               height: 20.0,
             ),
-            buildTextField("Username"),
+            buildTextField("Name"),
             SizedBox(
               height: 20.0,
             ),
@@ -56,8 +57,24 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(
               height: 30.0,
             ),
-            SizedBox(height: 20.0),
-            buildButtonContainer(),
+            SizedBox(height: 150.0),
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Align(
+                      alignment: Alignment.bottomLeft,
+                      child: buildButtonContainer("CANCEL")
+                  ),
+                  SizedBox(
+                    width: 80.0,
+                  ),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: buildButtonContainer("NEXT")
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -67,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget buildTextField(String hintText) {
     var icon;
     switch (hintText) {
-      case "Username":
+      case "Name":
         icon = Icon(Icons.account_circle);
         break;
       case "Email":
@@ -103,7 +120,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget buildButtonContainer() {
+  Widget buildButtonContainer(String name) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
@@ -112,17 +129,17 @@ class _SignUpPageState extends State<SignUpPage> {
         }));
       },
       child: Container(
-        height: 56.0,
-        width: MediaQuery.of(context).size.width,
+        height: 40.0,
+        width: MediaQuery.of(context).size.width / 3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: Colors.white,
+          color: Color(0xA6A6A6A6),
         ),
         child: Center(
           child: Text(
-            "Create account",
+            name,
             style: TextStyle(
-              color: Color(0xFF283468),
+              color: Colors.black,
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),

@@ -3,6 +3,7 @@ import 'AgendApp.dart';
 import 'package:flutter/services.dart';
 
 import 'Screens/Login/login.dart';
+import 'Screens/Login/signUp.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/login": (context) => LoginPage(),
-        "/signup": (context) => SignUpPage(),
+        "/signUp": (context) => SignUpPage(),
         "/agendAppMain": (context) => AgendAppMain()
       },
     );
@@ -40,8 +41,28 @@ class HomePage extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               Center(
-                  child: Text("Video Session Toolkit",
-                      style: TextStyle(fontSize: 32, color: Colors.black))),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "VIDEO SESSION TOOLKIT",
+                        style: TextStyle(
+                            fontSize: 32,
+                            color: Colors.black,
+                            height: 7.5,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Icon(
+                          Icons.calendar_today,
+                          size: 100,
+                      ),
+                    ],
+                  ),
+              ),
               MyButton(x: 40, y: 60, title: "Login", onPressed: () => Navigator.of(context).pushNamed("/login")),
               MyButton(x: 40, y: 70, title: "Sign Up", onPressed: () => Navigator.of(context).pushNamed("/signUp")),
               //MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
@@ -67,30 +88,18 @@ class MyButton extends StatelessWidget {
       left: (x / 100) * MediaQuery.of(context).size.width,
       top: (y / 100) * MediaQuery.of(context).size.height,
       child: FlatButton(
-        color: Colors.blue,
-        textColor: Colors.white,
-        disabledColor: Colors.grey,
-        disabledTextColor: Colors.black,
-        padding: EdgeInsets.all(8.0),
-        splashColor: Colors.blueAccent,
         onPressed: onPressed,
-        child: Text(
-          "Flat Button",
-          style: TextStyle(color: Colors.black),
-        ),
-        heroTag: title,
-      ),
-    );
-      /*child: FloatingActionButton(
-        onPressed: onPressed,
-        backgroundColor: Colors.white,
+        color: Color(0xA6A6A6A6),
         child: Text(
           title,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'RobotoMono',
+              fontWeight: FontWeight.bold
+          ),
         ),
-        heroTag: title,
       ),
-    );*/
+    );
   }
 }
 
