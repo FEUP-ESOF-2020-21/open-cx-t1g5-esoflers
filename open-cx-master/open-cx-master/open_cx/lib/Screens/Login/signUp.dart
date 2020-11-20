@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'login.dart';
+import '../Menu/mainMenu.dart';
+import 'package:open_cx/main.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -123,9 +124,14 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget buildButtonContainer(String name) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new LoginPage();
+        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          switch (name) {
+            case "CANCEL":
+              return HomePage();
+            case "NEXT":
+               return MenuPage();
+            default:
+          }
         }));
       },
       child: Container(

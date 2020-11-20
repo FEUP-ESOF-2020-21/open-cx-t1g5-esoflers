@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'AgendApp.dart';
 import 'package:flutter/services.dart';
 
 import 'Screens/Login/login.dart';
@@ -23,9 +22,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/login": (context) => LoginPage(),
+        "/login": (context) => LoginPage(),//CreateMeeting(),//AddMeetingPage(),//EditScheduleMenu(),//MenuPage(),//LoginPage(),
         "/signUp": (context) => SignUpPage(),
-        "/agendAppMain": (context) => AgendAppMain()
+        //"/agendAppMain": (context) => AgendAppMain()
       },
     );
   }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Menu/mainMenu.dart';
 
-import '../MenuOpen.dart';
-import 'signUp.dart';
 import 'recoverPassword.dart';
+import '../Menu/mainMenu.dart';
+import 'package:open_cx/main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -36,31 +37,24 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
-              height: 20.0,
-            ),
+
+            SizedBox( height: 20.0),
+
             Icon(
                 Icons.account_box,
                 size: 100
             ),
-            /*Text(
-              "‹Programming› 2020",
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-              ),
-            ),*/
-            SizedBox(
-              height: 60.0,
-            ),
+            
+            SizedBox(height: 60.0),
+
             buildTextField("Username"),
-            SizedBox(
-              height: 20.0,
-            ),
+
+            SizedBox(height: 20.0),
+
             buildTextField("Password"),
-            SizedBox(
-              height: 50.0,
-            ),
+
+            SizedBox(height: 50.0),
+
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -81,7 +75,9 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+
             SizedBox(height: 170.0),
+
             Container(
               child: Row(
                   children: <Widget>[
@@ -89,9 +85,9 @@ class _LoginPageState extends State<LoginPage> {
                         alignment: Alignment.bottomLeft,
                         child: buildButtonContainer("CANCEL")
                     ),
-                    SizedBox(
-                      width: 80.0,
-                    ),
+                    
+                    SizedBox(width: 80.0),
+
                     Align(
                         alignment: Alignment.bottomRight,
                         child: buildButtonContainer("NEXT")
@@ -99,37 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                   ],
               ),
             ),
-            /*SizedBox(
-              height: 10.0,
-            ),
-            Container(
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Don't have an account?",
-                        style: TextStyle(
-                          color: Colors.white,
-                        )),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute<Null>(
-                              builder: (BuildContext context) {
-                            return new SignUpPage();
-                          }));
-                        },
-                        child: Text("SIGN UP",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )))
-                  ],
-                ),
-              ),
-            ),*/
           ],
         ),
       ),
@@ -145,9 +110,7 @@ class _LoginPageState extends State<LoginPage> {
           color: Colors.white,
           fontSize: 16.0,
         ),
-        // border: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(20.0),
-        // ),
+        
         prefixIcon: hintText == "Username"
             ? Icon(Icons.account_circle)
             : Icon(Icons.lock),
@@ -167,11 +130,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget buildButtonContainer(String name) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new MenuPage();
-        }
-        )
-        );
+        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context){
+          switch (name) {
+            case "CANCEL":
+              return HomePage();
+            case "NEXT":
+               return MenuPage();
+            default:
+          }
+        }));
       },
       child: Container(
         height: 40.0,
