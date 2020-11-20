@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/login": (context) => LoginPage(),
-        "/agendAppMain": (context) => AgendAppMain()
+        "/agendAppMain": (context) => AgendAppMain(),
       },
     );
   }
