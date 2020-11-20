@@ -28,18 +28,13 @@ Thank you!
 
 Developed with love by:  
 Luís Silva up201808912@fe.up.pt  
-Maria Baia  
-Pedro Azevedo  
-Pedro Pinto  
+Maria Baia up201704951@fe.up.pt
+Pedro Azevedo up201806728@fe.up.pt
+Pedro Pinto  up201806251@fe.up.pt
 
 ---
 
 ## Product Vision
-Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
-It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
-
-Video Session Toolkit removes the anxiety from virtual sessions' management.  
-Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
 
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
 
@@ -54,12 +49,12 @@ To learn more about how to write a good product vision, please see also:
 -->
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
+It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
+
+Video Session Toolkit removes the anxiety from virtual sessions' management.  
+Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
 
 ---
 ## Requirements
@@ -208,6 +203,11 @@ For each user story you should write also the acceptance tests (textually in Ghe
 
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
+
+# Teste
+As a participant, I want an interface to the product
+
+As a host, I want to create a meeting
 
 ### Domain model
 
