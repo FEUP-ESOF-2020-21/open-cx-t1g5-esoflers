@@ -116,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           switch (name) {
             case "MENU":
-              return HomePage();
+              return MenuPage();
             case "EDIT":
                return MenuPage();
             default:
