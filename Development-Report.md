@@ -207,7 +207,7 @@ At the end, it is good to add a rough indication of the value of the user story 
 #### Story #1
  * As a host, I want an interface to the product.
 
-# Story2
+#### Story #2
  * As a host, I want to create a meeting.
 
 ### Domain model
