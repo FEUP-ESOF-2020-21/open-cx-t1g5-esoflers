@@ -28,18 +28,13 @@ Thank you!
 
 Developed with love by:  
 Luís Silva up201808912@fe.up.pt  
-Maria Baia  
-Pedro Azevedo  
-Pedro Pinto  
+Maria Baia up201704951@fe.up.pt
+Pedro Azevedo up201806728@fe.up.pt
+Pedro Pinto  up201806251@fe.up.pt
 
 ---
 
 ## Product Vision
-Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
-It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
-
-Video Session Toolkit removes the anxiety from virtual sessions' management.  
-Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
 
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
 
@@ -54,12 +49,12 @@ To learn more about how to write a good product vision, please see also:
 -->
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
+It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
+
+Video Session Toolkit removes the anxiety from virtual sessions' management.  
+Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
 
 ---
 ## Requirements
@@ -70,18 +65,122 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### Use case diagram 
 
-Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
+![Use case diagram](./use_case_diagram.png)
 
-Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
 
-Briefly describe each use case mentioning the following:
+#### **Authentication**
 
-* **Actor**. Name only the actor that will be initiating this use case, i.e. a person or other entity external to the software system being specified who interacts with the system and performs use cases to accomplish tasks. 
-* **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
-* **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
+* **Actor:** User
 
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-* **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
+* **Description:** Is the process by which users securely access the system, in order to use the application.
+
+* **Preconditions and Postconditions:** There is no preconditions for a user to authenticate, however after authenticating the user can use all the tools of the application.
+
+* **Normal Flow:**
+  * On the main page of the application, the actor selects the option "Sign up" if he doesn't have an account.
+  * The actor sees the "Sign up" page.
+  * The actor fills the necessary spaces.
+  * The actor must press de "Next" button to confirm authentication.
+
+* **Alternative Flows and Exceptions:**
+  * On the main page of the application, the actor selects the option "Log in" if he has an account.
+  * The actor sees the "Log in" page.
+  * The actor fills the necessary spaces.
+  * The actor must press de "Next" button to confirm authentication.
+
+#### **Participate in a Meeting**
+
+* **Actor:** User
+
+* **Description:** Each user can participate in a meeting, which can be
+private or public.
+
+* **Preconditions and Postconditions:** To participate in a meeting the user must be authenticated in the application. How ever, if it is a private meeting, the user must be invited to that meeting.
+
+* **Normal Flow:** Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system.
+
+* **Alternative Flows and Exceptions:** Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions.
+
+#### **Receive Notifications**
+
+* **Actor:** User
+
+* **Description:** The user can receive a notification to notify them of a future meeting.
+
+* **Preconditions and Postconditions:** To receive notification the user must be authenticated in the application.
+
+* **Normal Flow:** ???????????????????????????????
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
+
+#### **View Personal Schedule**
+
+* **Actor:** User
+
+* **Description:** The user can see his schedule of future meetings.
+
+* **Preconditions and Postconditions:** To see the personal schedule, the user must be authenticated in the application.
+
+* **Normal Flow:**
+  * In the Menu, the actor selects de "Schedule" option.
+  * The actor sees the "Schedule" page.
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
+
+#### **Edit Personal Schedule**
+
+* **Actor:** User
+
+* **Description:** The user can edit his schedule of future meetings, by adding an existing meeting to the schedule, or deleting a meeting from the schedule.
+
+* **Preconditions and Postconditions:** To see the personal schedule, the user must be authenticated in the application.
+
+* **Normal Flow:** ???????????????????????????????
+  * In the "Menu" page, the actor selects the "Schedule" option.
+  * The actor sees the "Schedule" page.
+  * In the "Schedule" page, the actor selects the edit icon.
+  * The actor sees the "Edit Schedule" page.
+  * In the "Edit Schedule" page, the actor can select de button "Add Meeting" or "Edit Schedule".
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
+
+#### **Manage Meeting**
+
+* **Actor:** Host
+
+* **Description:** The host can create a meeting, and he can also edit or delete it.
+
+* **Preconditions and Postconditions:** To manage a metting, the host must also be a user, and therefore must be authenticated in the application.
+
+* **Normal Flow:** ???????????????????????????????
+  * 
+  * 
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
+
+#### **Private Meeting**
+
+* **Actor:** ???????????????????????????????
+
+* **Description:** ???????????????????????????????
+
+* **Preconditions and Postconditions:** ???????????????????????????????
+
+* **Normal Flow:** ??????????????????????????????? 
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
+
+#### **Public Meeting**
+
+* **Actor:** ???????????????????????????????
+
+* **Description:** ???????????????????????????????
+
+* **Preconditions and Postconditions:** ???????????????????????????????
+
+* **Normal Flow:** ???????????????????????????????
+
+* **Alternative Flows and Exceptions:** ???????????????????????????????
 
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
@@ -104,6 +203,12 @@ For each user story you should write also the acceptance tests (textually in Ghe
 
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
+
+#### Story1
+ * As a host, I want an interface to the product.
+
+#### **Story #2**
+ * As a host, I want to create a meeting.
 
 ### Domain model
 
