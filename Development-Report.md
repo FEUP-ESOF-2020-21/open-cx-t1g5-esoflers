@@ -68,38 +68,22 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 ![Use case diagram](./use_case_diagram.png)
 
 
-#### **Authentication**
-
-* **Actor:** User
-
-* **Description:** Is the process by which users securely access the system, in order to use the application.
-
-* **Preconditions and Postconditions:** There is no preconditions for a user to authenticate, however after authenticating the user can use all the tools of the application.
-
-* **Normal Flow:**
-  * On the main page of the application, the actor selects the option "Sign up" if he doesn't have an account.
-  * The actor sees the "Sign up" page.
-  * The actor fills the necessary spaces.
-  * The actor must press de "Next" button to confirm authentication.
-
-* **Alternative Flows and Exceptions:**
-  * On the main page of the application, the actor selects the option "Log in" if he has an account.
-  * The actor sees the "Log in" page.
-  * The actor fills the necessary spaces.
-  * The actor must press de "Next" button to confirm authentication.
-
 #### **Participate in a Meeting**
 
 * **Actor:** User
 
-* **Description:** Each user can participate in a meeting, which can be
-private or public.
+* **Description:** Each user can participate in a meeting, which can be private or public.
 
 * **Preconditions and Postconditions:** To participate in a meeting the user must be authenticated in the application. How ever, if it is a private meeting, the user must be invited to that meeting.
 
-* **Normal Flow:** Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system.
+* **Normal Flow:** 
+  * In the "Schedule" page, the actor selects the meeting link to attend.
 
-* **Alternative Flows and Exceptions:** Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions.
+* **Alternative Flows:**
+  * In the "Menu" page, the actor selects the "Schedule" page.
+  * In the "Schedule" page, the actor selects the meeting link to attend.
+
+* **Alternative Flows and Exceptions:** Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. (**Ocorreu-me a possibilidade de o host da meeting ainda não a ter iniciado um aviso ao utilizador**)
 
 #### **Receive Notifications**
 
@@ -107,11 +91,9 @@ private or public.
 
 * **Description:** The user can receive a notification to notify them of a future meeting.
 
-* **Preconditions and Postconditions:** To receive notification the user must be authenticated in the application.
+* **Preconditions and Postconditions:** To receive notification the user must be authenticated in the application, and have the phone notifications active.
 
 * **Normal Flow:** ???????????????????????????????
-
-* **Alternative Flows and Exceptions:** ???????????????????????????????
 
 #### **View Personal Schedule**
 
@@ -125,8 +107,6 @@ private or public.
   * In the Menu, the actor selects de "Schedule" option.
   * The actor sees the "Schedule" page.
 
-* **Alternative Flows and Exceptions:** ???????????????????????????????
-
 #### **Edit Personal Schedule**
 
 * **Actor:** User
@@ -135,14 +115,32 @@ private or public.
 
 * **Preconditions and Postconditions:** To see the personal schedule, the user must be authenticated in the application.
 
-* **Normal Flow:** ???????????????????????????????
+* **Normal Flow:**
   * In the "Menu" page, the actor selects the "Schedule" option.
   * The actor sees the "Schedule" page.
-  * In the "Schedule" page, the actor selects the edit icon.
+  * The actor selects the edit icon.
   * The actor sees the "Edit Schedule" page.
-  * In the "Edit Schedule" page, the actor can select de button "Add Meeting" or "Edit Schedule".
+  * The actor can select the "Add Meeting" button.
+  * The actor sees the "Add Meeting" page.
+  * The actor selects desired meeting to add and presses the "Next" button to confirm.
 
-* **Alternative Flows and Exceptions:** ???????????????????????????????
+* **Normal Flow:**
+  * In the "Menu" page, the actor selects the "Schedule" option.
+  * The actor sees the "Schedule" page.
+  * The actor selects the edit icon.
+  * The actor sees the "Edit Schedule" page.
+  * The actor can select the "Remove Meeting" button.
+  * The actor sees the "Remove Meeting" page.
+  * The actor selects the meetings to remove and presses the "Next" button to confirm.
+
+* **Alternative Flowsions:**
+  * In the "Edit Schedule" page, the actor presses the "Cancel" to return to the previous page.
+
+* **Alternative Flows**
+  * In the "Remove Meeting" page, the actor presses the "Cancel" to return to the previous page.
+
+* **Alternative Flows**
+  * In the "Add Meeting" page, the actor presses the "Cancel" to return to the previous page.
 
 #### **Manage Meeting**
 
@@ -152,35 +150,53 @@ private or public.
 
 * **Preconditions and Postconditions:** To manage a metting, the host must also be a user, and therefore must be authenticated in the application.
 
-* **Normal Flow:** ???????????????????????????????
-  * 
-  * 
+* **Normal Flow:** 
+  * In the "Menu" page, the actor selects the "Create Meeting" option.
+  * The actor sees the "Create Meeting" page.
+  * The actor fills the necessary spaces.
+  * The actor must press de "Next" button to confirm authentication.
 
-* **Alternative Flows and Exceptions:** ???????????????????????????????
+* **Normal Flow:** 
+  * In the "Menu" page, the actor selects the "Profile" option.
+  * The actor sees the "Profile" page.
+  * The actor selects the edit icon.
+  * The actor sees the "Edit Profile" page.
+  * The actor selects the meeting to edit.
+  * The actor changes the necessary spaces.
+  * The actor must press de "Next" button to confirm.
+
+  * **Normal Flow:** 
+  * In the "Menu" page, the actor selects the "Profile" option.
+  * The actor sees the "Profile" page.
+  * The actor selects the edit icon.
+  * The actor sees the "Edit Profile" page.
+  * The actor selects the meeting to edit.
+  * The actor must press de "Delete Meeting" button to delete the meeting.
+
+* **Alternative Flows**
+  * In the "Create Meeting" page, the actor presses the "Cancel" to return to the previous page.
+
+* **Alternative Flows**
+  * In the "Edit Profile" page, the actor presses the "Cancel" to return to the previous page.
+
+* **Alternative Flows**
+  * In the "Edit Meeting" page, the actor presses the "Cancel" to return to the previous page.
 
 #### **Private Meeting**
 
-* **Actor:** ???????????????????????????????
+* **Actor:** Actor and Host
 
-* **Description:** ???????????????????????????????
+* **Description:** Its a specific type of meetings to be handled.
 
-* **Preconditions and Postconditions:** ???????????????????????????????
-
-* **Normal Flow:** ??????????????????????????????? 
-
-* **Alternative Flows and Exceptions:** ???????????????????????????????
+* **Preconditions and Postconditions:** To access the private meeting, the user must be authenticated in the application, so that he can access a private meeting as a user, only if he is invited to do so, or create a private meeting as a host.
 
 #### **Public Meeting**
 
-* **Actor:** ???????????????????????????????
+* **Actor:** Actor and Host
 
-* **Description:** ???????????????????????????????
+* **Description:** Its a specific type of meetings to be handled.
 
-* **Preconditions and Postconditions:** ???????????????????????????????
-
-* **Normal Flow:** ???????????????????????????????
-
-* **Alternative Flows and Exceptions:** ???????????????????????????????
+* **Preconditions and Postconditions:** To access the public meeting, the user must be authenticated in the application, so that he can access a public meeting as a user, or create a public meeting as a host.
 
 ### User stories
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
