@@ -204,10 +204,11 @@ For each user story you should write also the acceptance tests (textually in Ghe
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
-# Teste
-As a participant, I want an interface to the product
+#### **Story #1**
+ * As a host, I want an interface to the product.
 
-As a host, I want to create a meeting
+#### **Story #2**
+ * As a host, I want to create a meeting.
 
 ### Domain model
 
