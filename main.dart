@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
-import 'datetimefield.dart';
+import 'package:hello/Session.dart';
+import 'Calendar.dart';
+
+// Acho que agora funcionou mais ou menos mas está a aparecer uma barra amarela e preta de perigo no android
+// Vou tentar comentar os widgets anteriores para ver se dá
+// O perigo faz parte da nossa profissão xD
+// Só uma cena, esse calendário é o do ano passado? É tipo o já existente do projeto?
+// Yas, só que não podemos usar o calendário do ano passado diretamente porque eles usavam uma classe Talk que tinha coisas que eu não percebia o que era
+// Okz, então queremos criar o nosso próprio calendário um bocado diferente do outro para pormos as nossas sessoes?
+// Yas, mas acho que agora está a funcionar mais ou menos, só que aparece aquela barra amarela estranha e não está a aparecer a sessão que pus no construtor
+// Vou te mandar print para o messenger. Yas
 
 void main() {
   runApp(MyApp());
@@ -27,13 +37,13 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: CreateSession(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class CreateSession extends StatefulWidget {
+  CreateSession({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -47,10 +57,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _CreateSessionState createState() => _CreateSessionState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CreateSessionState extends State<CreateSession> {
   DateTime _dateTime;
   TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
   String _selectedPlatform;
@@ -63,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -98,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            //Text(_dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()),
+            //Text(_dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()), Não ligues a isto
             RaisedButton(
               child: Text(_dateTime == null ? 'Date: ' : 'Date: ' +  _dateTime.day.toString() + '/' + _dateTime.month.toString() + '/' + _dateTime.year.toString()),
               onPressed: () {
@@ -119,8 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(_initialTimeOfDay == null ? 'Initial Time: ' : 'Initial time: ' +  _initialTimeOfDay.hour.toString() + ":" + _initialTimeOfDay.minute.toString()),
               onPressed: () {
                 showTimePicker(
-                    context: context,
-                    initialTime: _initialTimeOfDay == null ? TimeOfDay.now() : _initialTimeOfDay,
+                  context: context,
+                  initialTime: _initialTimeOfDay == null ? TimeOfDay.now() : _initialTimeOfDay,
                 ).then((time) {
                   setState(() {
                     _initialTimeOfDay = time;
@@ -157,7 +168,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: new Text(value),
                 );
               }).toList(),
-            )
+            ),
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 2, minute: 30), new TimeOfDay(hour: 4, minute: 0), _selectedPlatform)])
           ],
         ),
       ),
