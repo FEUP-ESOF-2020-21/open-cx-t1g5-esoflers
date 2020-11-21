@@ -225,6 +225,9 @@ At the end, it is good to add a rough indication of the value of the user story 
 
 #### Story #2
  * As a host, I want to create a meeting.
+ 
+#### Story #3
+ * As a host, I want to manage my schedule.
 
 ### Domain model
 
