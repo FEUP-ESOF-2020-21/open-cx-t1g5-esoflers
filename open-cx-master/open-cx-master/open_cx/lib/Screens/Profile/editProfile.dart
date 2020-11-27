@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:open_cx/Screens/Menu/mainMenu.dart';
-import 'package:open_cx/Screens/Profile/editProfile.dart';
+import 'package:open_cx/Screens/Profile/profile.dart';
 
 import '../Menu/mainMenu.dart';
-import 'package:open_cx/main.dart';
 
-class ProfilePage extends StatefulWidget {
+class EditProfilePage extends StatefulWidget {
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _EditProfilePageState createState() => _EditProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _EditProfilePageState extends State<EditProfilePage> {
   bool _isHidden = true;
   String _selectedPlatform;
 
@@ -31,26 +29,8 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
 
-            Container(
-              child: Row(
-                  children: <Widget>[
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: buildButtonContainer("MENU", Icon(Icons.menu))
-                    ),
-
-                    SizedBox(width: 270.0),
-
-                    Align(
-                        alignment: Alignment.topRight,
-                        child: buildButtonContainer("EDIT",Icon(Icons.create))
-                    ),
-                  ],
-              ),
-            ),
-
             Text(
-              'PROFILE',
+              'EDIT PROFILE',
               style: TextStyle(
                 fontSize: 50.0,
                 color: Colors.black,
@@ -64,19 +44,39 @@ class _ProfilePageState extends State<ProfilePage> {
                 Icons.account_box,
                 size: 100
             ),
-            
+
             SizedBox(height: 60.0),
 
-            buildTextField("Name"),
+            buildTextField("Change Name:"),
 
-            SizedBox(height: 20.0),
+            TextField(
+              decoration: InputDecoration(
+                border: new OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.teal)
+                ),
+              ),
+            ),
 
-            buildTextField("Mail"),
+            SizedBox(
+              height: 20.0,
+            ),
 
-            SizedBox(height: 170.0),
+            buildTextField("Change Email:"),
+
+            TextField(
+              decoration: InputDecoration(
+                border: new OutlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.teal)
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: 20.0,
+            ),
 
             DropdownButton<String>(
-              hint: Text('CREATED MEETINGS'),
+              hint: Text('EDIT CREATED MEETINGS'),
               value: _selectedPlatform,
               onChanged: (platform) {
                 setState(() {
@@ -91,7 +91,27 @@ class _ProfilePageState extends State<ProfilePage> {
               }).toList(),
             ),
 
-      
+            SizedBox(
+              height: 100.0,
+            ),
+
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Align(
+                      alignment: Alignment.bottomLeft,
+                      child: buildButtonContainer("CANCEL")
+                  ),
+                  SizedBox(
+                    width: 80.0,
+                  ),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: buildButtonContainer("NEXT")
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -111,30 +131,38 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget buildButtonContainer(String name,Icon icon) {
+  Widget buildButtonContainer(String name) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           switch (name) {
-            case "MENU":
-              return MenuPage();
-            case "EDIT":
-               return EditProfilePage();
+            case "CANCEL":
+              return ProfilePage();
+            case "NEXT":
+              return ProfilePage();
             default:
           }
-        }));
+        }
+        ));
       },
       child: Container(
         height: 40.0,
-        width: MediaQuery.of(context).size.width / 8,
+        width: MediaQuery.of(context).size.width / 3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Color(0xA6A6A6A6),
         ),
         child: Center(
-          child: icon,
+          child: Text(
+            name,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
             ),
           ),
+        ),
+      ),
     );
   }
 }
