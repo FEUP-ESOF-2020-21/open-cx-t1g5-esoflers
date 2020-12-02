@@ -38,6 +38,10 @@ Pedro Pinto  up201806251@fe.up.pt
 
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
 
+Making virtual connections easy!
+Simplify meetups!
+Video meetups for all!
+
 **We favor a catchy and concise statement, ideally one sentence.**
 
 To learn more about how to write a good product vision, please see also:
