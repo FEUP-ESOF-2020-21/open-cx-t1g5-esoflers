@@ -15,6 +15,6 @@ class Session {
     this.initialTime = initialTime;
     this.finalTime = finalTime;
     this.platform = platform;
-    color = new Color(0xFF000000);
+    color = new Color(0xFFFF9000);
   }
 }

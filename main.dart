@@ -100,7 +100,7 @@ class _CreateSessionState extends State<CreateSession> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
+            /*TextField(
               decoration: InputDecoration(
                   border: new OutlineInputBorder(
                       borderSide: new BorderSide(color: Colors.teal)
@@ -168,8 +168,8 @@ class _CreateSessionState extends State<CreateSession> {
                   child: new Text(value),
                 );
               }).toList(),
-            ),
-            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 2, minute: 30), new TimeOfDay(hour: 4, minute: 0), _selectedPlatform)])
+            ),*/
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
           ],
         ),
       ),

@@ -11,7 +11,9 @@ class Calendar extends StatefulWidget {
   CalendarState createState() => CalendarState();
 }
 
-class CalendarState extends State<Calendar>    {
+class CalendarState extends State<Calendar> {
+  
+  int totalHoursInDay = 24;
 
   int firstBlock = 0;
   int finalBlock = 0;
@@ -23,10 +25,27 @@ class CalendarState extends State<Calendar>    {
   List<DateTime> daysList = [new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 9, 8, 0),new DateTime(2019, 12, 10, 8, 0),new DateTime(2019, 12, 11, 8, 0),new DateTime(2019, 12, 12, 8, 0),new DateTime(2019, 12, 13, 8, 0)];
   List<ScrollController> controllers = new List<ScrollController>();
 
-  final List<String> timeInterval = [
+  /*final List<String> timeInterval = [
     "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 AM", "12:30 AM",
-    "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM"
-  ];
+    "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"
+  ];*/
+
+  final List<String> timeInterval = [];
+
+  CalendarState() {
+    createTimeIntervals();
+  }
+  
+  void createTimeIntervals() {
+    for (int i = 0; i < totalHoursInDay; i++) {
+      timeInterval.add(createTimeString(i, 0));
+      timeInterval.add(createTimeString(i, 30));
+    }
+  }
+
+  String createTimeString(int hour, int minute) {
+    return hour.toString().padLeft(2, '0') + ":" + minute.toString().padLeft(2, '0');
+  }
 
   List<String> createIntervals(int firstHour, int firstMinutes, int lastHour, int lastMinutes) {
     String firstTime = firstHour.toString().padLeft(2,'0')  + ":" + firstMinutes.toString().padLeft(2,'0') ;
@@ -120,14 +139,15 @@ class CalendarState extends State<Calendar>    {
 
 // Usado para facilitar a colocaçao dos blocos na tabela
   void convertToBlocks(TimeOfDay initTime, TimeOfDay finalTime){
-    firstBlock = ((initTime.hour-8)*2 + (initTime.minute)/30).round();
-    finalBlock = ((finalTime.hour-8)*2 + (finalTime.minute)/30).round();
+    firstBlock = (initTime.hour*2 + (initTime.minute)/30).round();
+    finalBlock = (finalTime.hour*2 + (finalTime.minute)/30).round();
     numBlocks = finalBlock - firstBlock;
   }
 
   Widget individualTalkBlock(int i, int j, Color backColor, Color blockColor){
     int finalBlockBefore = finalBlock;
     convertToBlocks(widget.sessionList[j].initialTime, widget.sessionList[j].finalTime);
+    print(MediaQuery.of(context).size.height * blockSize * (firstBlock-finalBlockBefore));
     return Container(
         child: Column(
           children: <Widget>[
