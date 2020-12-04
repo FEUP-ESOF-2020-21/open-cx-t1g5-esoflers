@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Profile/editProfile.dart';
+import 'package:open_cx/Screens/Program/SchedulePage/SchedulePage.dart';
 import 'package:open_cx/Screens/Program/TalkPage/TalkPage.dart';
+import 'package:open_cx/Screens/Profile/editProfile.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
 
-class CreateMeeting extends StatefulWidget {
+class EditMeeting extends StatefulWidget {
   @override
-  _CreateMeetingPageState createState() => _CreateMeetingPageState();
+  _EditMeetingPageState createState() => _EditMeetingPageState();
 }
 
-class _CreateMeetingPageState extends State<CreateMeeting> {
+class _EditMeetingPageState extends State<EditMeeting> {
   bool _isHidden = true;
   DateTime _dateTime;
   TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
@@ -30,7 +33,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'CREATE MEETING',
+              'EDIT MEETING',
               style: TextStyle(
                 fontSize: 45.0,
                 color: Colors.black,
@@ -45,7 +48,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                 size: 100
             ),
 
-            buildTextField("Name"),
+            buildTextField("Change Name:"),
 
             TextField(
                 decoration: InputDecoration(
@@ -59,7 +62,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
               height: 20.0,
             ),
 
-            buildTextField("Description"),
+            buildTextField("Change Description:"),
 
             TextField(
                 decoration: InputDecoration(
@@ -119,7 +122,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             ),
 
             DropdownButton<String>(
-              hint: Text('Platform'),
+              hint: Text('Change Platform:'),
               value: _selectedPlatform,
               onChanged: (platform) {
                 setState(() {
@@ -134,7 +137,6 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
               }).toList(),
             ),
 
-            SizedBox(height: 5.0),
 
             Container(
               child: Row(
@@ -143,8 +145,9 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                         alignment: Alignment.bottomLeft,
                         child: buildButtonContainer("CANCEL")
                     ),
-                    SizedBox(
-                      width: 80.0,
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: buildButtonIconContainer("DELETE MEETING")
                     ),
                     Align(
                         alignment: Alignment.bottomRight,
@@ -180,9 +183,9 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           switch (name) {
             case "CANCEL":
-              return MenuPage();
+              return EditProfilePage();
             case "NEXT":
-               return TalkPage();
+               //return SchedulePage();
             default:
           }
         }
@@ -203,6 +206,35 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildButtonIconContainer(String name) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          switch (name) {
+            case "DELETE MEETING":
+              //return SchedulePage();
+            default:
+          }
+        }
+        ));
+      },
+      child: Container(
+        height: 40.0,
+        width: MediaQuery.of(context).size.width / 5,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: Color(0xFF9CBDCE),
+        ),
+        child: Center(
+          child: Icon(
+                Icons.delete_forever,
+                size: 40
           ),
         ),
       ),

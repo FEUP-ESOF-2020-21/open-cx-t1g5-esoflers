@@ -36,7 +36,13 @@ Pedro Pinto  up201806251@fe.up.pt
 
 ## Product Vision
 
+Making virtual connections easy!
+
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
+
+Making virtual connections easy!
+Simplify meetups!
+Video meetups for all!
 
 **We favor a catchy and concise statement, ideally one sentence.**
 
@@ -50,17 +56,24 @@ To learn more about how to write a good product vision, please see also:
 ---
 ## Elevator Pitch
 
-Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
-It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
+<!--Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
+It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.-->
 
 Video Session Toolkit removes the anxiety from virtual sessions' management.  
 Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
 
 ---
-## Requirements
-
+## Pre-Requirements
+For the usage of the module it is required that the user has a mobile phone with internet connection. It is required to have an account in the application.  
+For full funtionality it is reccommended to have notifications enabled.  
+Android version=>8.0  
+Ios version>=Ios 10.0.0  
 In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
+---
+## Requirements
+
+Como principais requesitos do aplicativo Video Session Toolkit, damos a possibilidade de o utilizador criar video-conferências ou assistir a video-conferências do seu interesse. De modo a facilitar o acesso às video-conferências do interesse ao utilizador, iremos fornecer uma estrutura organizada onde o utilizador poderá encontrar todas as video-conferências escolhidas. Receberem notificações previamente antes de cada video conferencia comecar, para puderem sem preocupação chegar a tempo ao início delas.
 Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
 
 ### Use case diagram 
@@ -220,14 +233,49 @@ For each user story you should write also the acceptance tests (textually in Ghe
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
-#### Story #1
- * As a host, I want an interface to the product.
-
-#### Story #2
- * As a host, I want to create a meeting.
+#### **Story** #1
+ *User Storie:* As a host, I want an interface to the product.
  
-#### Story #3
- * As a host, I want to manage my schedule. (XL)
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| A button from each page | User clicks a button | The page changes to the accordingly
+
+<br>
+
+#### **Story** #2
+ *User Storie:* As a host, I want to create a meeting.
+ 
+ *Value:* Must Have.
+
+ *Effort:* L
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to create a meeting | User fills all the necessary fields | A new meeting is created and added to a list of existing meetings
+| The page to create a meeting | User sets a date in the past | The creation of a meeting fails
+
+<br>
+ 
+#### **Story** #3
+ *User Storie:* As a host, I want to manage my schedule.
+ 
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to add a meeting to the personal schedule | User selects a meeting from existing meetings | A new meeting is added to his personal schedule
+| The page to delete a meeting from the personal schedule | User selects a meeting to delete | That meeting will no longer appear on the personal calendar
+
+<br>
 
 ### Domain model
 

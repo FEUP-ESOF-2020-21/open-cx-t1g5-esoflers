@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Program/TalkPage/TalkPage.dart';
 import 'package:open_cx/Screens/Schedule/createMeeting.dart';
+import 'package:open_cx/Screens/Profile/profile.dart';
 
 import 'package:open_cx/main.dart';
+import '../Schedule/schedule.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -157,9 +159,9 @@ class _MenuPageState extends State<MenuPage> {
             case "CREATE MEETING":
               return CreateMeeting();
             case "PROFILE":
-              return TalkPage();
+              return ProfilePage();
             case "SCHEDULE":
-              return TalkPage();
+              return SchedulePage();
             case "LOG OUT":
               return HomePage();
             default:

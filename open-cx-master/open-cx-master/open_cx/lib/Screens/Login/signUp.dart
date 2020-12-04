@@ -58,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(
               height: 30.0,
             ),
-            SizedBox(height: 150.0),
+            SizedBox(height: 200.0),
             Container(
               child: Row(
                 children: <Widget>[
