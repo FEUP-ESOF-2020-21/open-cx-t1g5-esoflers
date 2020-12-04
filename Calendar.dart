@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello/Session.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Calendar extends StatefulWidget {
   final List<Session> sessionList;
@@ -19,6 +20,7 @@ class CalendarState extends State<Calendar> {
   int finalBlock = 0;
   int numBlocks = 0;
   double blockSize = 0.04;
+  double visibleHeightFactor = 0.8;
   ScrollController _controller1;
   ScrollController _controller2;
 
@@ -147,7 +149,6 @@ class CalendarState extends State<Calendar> {
   Widget individualTalkBlock(int i, int j, Color backColor, Color blockColor){
     int finalBlockBefore = finalBlock;
     convertToBlocks(widget.sessionList[j].initialTime, widget.sessionList[j].finalTime);
-    print(MediaQuery.of(context).size.height * blockSize * (firstBlock-finalBlockBefore));
     return Container(
         child: Column(
           children: <Widget>[
@@ -160,7 +161,8 @@ class CalendarState extends State<Calendar> {
               /*onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)  => TalkPage(talk: widget.talkList[j])));
               },*/
-              child: Container(
+            onTap: () => launch('https://www.facebook.com/'),
+            child: Container(
                 color: widget.sessionList[j].color,
                 height: MediaQuery.of(context).size.height * blockSize * numBlocks,
                 width: MediaQuery.of(context).size.width,
@@ -237,7 +239,7 @@ class CalendarState extends State<Calendar> {
   Widget blockContainer(int i, Color color) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.7,
+      height: MediaQuery.of(context).size.height * visibleHeightFactor,
       color: color,
       child: ListView(
         scrollDirection: Axis.vertical,
@@ -248,7 +250,7 @@ class CalendarState extends State<Calendar> {
               individualTalkBlock(i, j, color, Color.fromARGB(255,247,220,222)),
           Container(
             color: Colors.black.withOpacity(0),
-            height:MediaQuery.of(context).size.height * blockSize * (21-finalBlock),
+            height:MediaQuery.of(context).size.height * blockSize * (timeInterval.length-finalBlock),
           ),
         ],
       ),
@@ -263,9 +265,10 @@ class CalendarState extends State<Calendar> {
             color: Colors.white,
             height: MediaQuery.of(context).size.height * 2*blockSize,
           ),
+
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.7,
+            height: MediaQuery.of(context).size.height * visibleHeightFactor,
             color: Colors.white,
             child: ListView(
               controller: _controller1,
@@ -349,9 +352,7 @@ class CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> teste = createIntervals(8, 0, 18, 0);
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.92,
+    return Flexible(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[

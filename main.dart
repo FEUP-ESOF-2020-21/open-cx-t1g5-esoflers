@@ -169,7 +169,7 @@ class _CreateSessionState extends State<CreateSession> {
                 );
               }).toList(),
             ),*/
-            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform, "https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers")])
           ],
         ),
       ),
