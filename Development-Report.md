@@ -36,6 +36,8 @@ Pedro Pinto  up201806251@fe.up.pt
 
 ## Product Vision
 
+Making virtual connections easy!
+
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
 
 Making virtual connections easy!
@@ -54,8 +56,8 @@ To learn more about how to write a good product vision, please see also:
 ---
 ## Elevator Pitch
 
-Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
-It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
+<!--Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
+It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.-->
 
 Video Session Toolkit removes the anxiety from virtual sessions' management.  
 Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
@@ -231,14 +233,49 @@ For each user story you should write also the acceptance tests (textually in Ghe
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
 
-#### Story #1
- * As a host, I want an interface to the product.
-
-#### Story #2
- * As a host, I want to create a meeting.
+#### **Story** #1
+ *User Storie:* As a host, I want an interface to the product.
  
-#### Story #3
- * As a host, I want to manage my schedule. (XL)
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| A button from each page | User clicks a button | The page changes to the accordingly
+
+<br>
+
+#### **Story** #2
+ *User Storie:* As a host, I want to create a meeting.
+ 
+ *Value:* Must Have.
+
+ *Effort:* L
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to create a meeting | User fills all the necessary fields | A new meeting is created and added to a list of existing meetings
+| The page to create a meeting | User sets a date in the past | The creation of a meeting fails
+
+<br>
+ 
+#### **Story** #3
+ *User Storie:* As a host, I want to manage my schedule.
+ 
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to add a meeting to the personal schedule | User selects a meeting from existing meetings | A new meeting is added to his personal schedule
+| The page to delete a meeting from the personal schedule | User selects a meeting to delete | That meeting will no longer appear on the personal calendar
+
+<br>
 
 ### Domain model
 
