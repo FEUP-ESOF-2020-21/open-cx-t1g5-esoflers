@@ -4,6 +4,7 @@ import 'package:open_cx/AgendApp.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
 
 import 'Screens/Login/login.dart';
+import 'Screens/Login/signUp.dart';
 import 'Screens/Schedule/editMeeting.dart';
 import 'Screens/Schedule/schedule.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => HomePage(),
         "/login": (context) => LoginPage(),//CreateMeeting(),//AddMeetingPage(),//EditScheduleMenu(),//MenuPage(),//LoginPage(),
-        "/signUp": (context) => SchedulePage(), //EditMeeting(),//SignUpPage(),
+        "/signUp": (context) => SignUpPage(), //SchedulePage(), //EditMeeting(),//SignUpPage(),
         //"/agendAppMain": (context) => AgendAppMain()
       },
     );

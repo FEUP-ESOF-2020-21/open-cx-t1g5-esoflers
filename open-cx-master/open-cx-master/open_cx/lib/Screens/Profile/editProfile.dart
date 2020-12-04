@@ -92,7 +92,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
 
             SizedBox(
-              height: 100.0,
+              height: 110.0,
             ),
 
             Container(

@@ -134,7 +134,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
               }).toList(),
             ),
 
-            SizedBox(height: 50.0),
+            SizedBox(height: 5.0),
 
             Container(
               child: Row(
