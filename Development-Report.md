@@ -28,20 +28,21 @@ Thank you!
 
 Developed with love by:  
 Luís Silva up201808912@fe.up.pt  
-Maria Baia  
-Pedro Azevedo  
-Pedro Pinto  
+Maria Baia up201704951@fe.up.pt
+Pedro Azevedo up201806728@fe.up.pt
+Pedro Pinto  up201806251@fe.up.pt
 
 ---
 
 ## Product Vision
-Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
-It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.
 
-Video Session Toolkit removes the anxiety from virtual sessions' management.  
-Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
+Making virtual connections easy!
 
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
+
+Making virtual connections easy!
+Simplify meetups!
+Video meetups for all!
 
 **We favor a catchy and concise statement, ideally one sentence.**
 
@@ -54,38 +55,31 @@ To learn more about how to write a good product vision, please see also:
 -->
 ---
 ## Elevator Pitch
-Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
-Take a look at the following links to learn some techniques:
-* [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
-* [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+<!--Setting up a virtual meeting is arduous and boring and can be very repetitive and prone to human  errors if there are multiple sessions to be adjourned.  
+It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.-->
+
+Video Session Toolkit removes the anxiety from virtual sessions' management.  
+Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
+
+---
+## Pre-Requirements
+For the usage of the module it is required that the user has a mobile phone with internet connection. It is required to have an account in the application.  
+For full funtionality it is reccommended to have notifications enabled.  
+Android version=>8.0  
+Ios version>=Ios 10.0.0  
+In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
 ---
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
-
+Como principais requesitos do aplicativo Video Session Toolkit, damos a possibilidade de o utilizador criar video-conferências ou assistir a video-conferências do seu interesse. De modo a facilitar o acesso às video-conferências do interesse ao utilizador, iremos fornecer uma estrutura organizada onde o utilizador poderá encontrar todas as video-conferências escolhidas. Receberem notificações previamente antes de cada video conferencia comecar, para puderem sem preocupação chegar a tempo ao início delas.
 Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
 
 ### Use case diagram 
 
 ![Use case diagram](./use_case_diagram.png)
 
-
-#### **Authentication**
-
-* **Actor:** User
-
-* **Description:** Is the process by which users securely access the system, in order to use the application.
-
-* **Preconditions and Postconditions:** There is no preconditions for a user to authenticate, however after authenticating the user can use all the tools of the application.
-
-* **Normal Flow:**
-  * On the main page of the application, the actor selects the option "Sign up" if he doesn't have an account or the option "Log in" if he has an account.
-  * The actor sees the "Sign up" or the "Log in" page.
-  * The actor fills the necessary spaces.
-  * The actor must press de "Next" button to confirm authentication.
 
 #### **Participate in a Meeting**
 
@@ -238,6 +232,50 @@ For each user story you should write also the acceptance tests (textually in Ghe
 
 **Value and effort**.
 At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
+
+#### **Story** #1
+ *User Storie:* As a host, I want an interface to the product.
+ 
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| A button from each page | User clicks a button | The page changes to the accordingly
+
+<br>
+
+#### **Story** #2
+ *User Storie:* As a host, I want to create a meeting.
+ 
+ *Value:* Must Have.
+
+ *Effort:* L
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to create a meeting | User fills all the necessary fields | A new meeting is created and added to a list of existing meetings
+| The page to create a meeting | User sets a date in the past | The creation of a meeting fails
+
+<br>
+ 
+#### **Story** #3
+ *User Storie:* As a host, I want to manage my schedule.
+ 
+ *Value:* Must Have.
+
+ *Effort:* XL
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to add a meeting to the personal schedule | User selects a meeting from existing meetings | A new meeting is added to his personal schedule
+| The page to delete a meeting from the personal schedule | User selects a meeting to delete | That meeting will no longer appear on the personal calendar
+
+<br>
 
 ### Domain model
 
