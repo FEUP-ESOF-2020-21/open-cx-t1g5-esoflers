@@ -102,6 +102,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.8"
+  jitsi_meet:
+    dependency: "direct main"
+    description:
+      name: jitsi_meet
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   markdown:
     dependency: transitive
     description:
