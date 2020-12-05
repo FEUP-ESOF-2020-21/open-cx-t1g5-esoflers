@@ -1,122 +1,231 @@
 import 'package:flutter/material.dart';
-
-import '../../Model/Talk.dart';
-import '../../Model/ThemeTalk.dart';
-import '../../Model/User.dart';
-
-import '../Help/HelpPage.dart';
-import '../Navigation/VenuePage.dart';
-import '../People/PeoplePage.dart';
-import '../Program/ProgramPage.dart';
-
-int talkId = 0;
-
-
-final List<ThemeTalk> allThemes = [
-  new ThemeTalk("Auto/Tech", Color(0xFF1E90FF)),
-  new ThemeTalk("Sports", Color(0xFFFF0000)),
-  new ThemeTalk("Deep Tech", Color(0xFF00CA00)),
-  new ThemeTalk("Pitch!", Color(0xFFFFA000)),
-];
-
-final List<ThemeTalk> userThemes = [];
-
-final List<String> speakers = [
-  "Alexander Zosel",
-  "Michael Kratsios",
-  "Pedro Miranda",
-  "Laurie Segall",
-  "Marcelo Rebelo de Sousa"
-];
-
-final List<ThemeTalk> interests = [allThemes[1], allThemes[2], allThemes[3]];
-
-
-
-final user = new User("Tiago Miller", "tigasmiller@gmail.com", userThemes, "https://yt3.ggpht.com/a/AGF-l791z2rgw2RhBFQ2vnnI3wuxwMdZSNXI3U1LgQ=s176-c-k-c0x00ffffff-no-rj-mo");
-
-final List<Talk> talkList = [
-  new Talk(talkId++,new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 8, 9, 30), "Drones and food delivery: A marriage made in Heaven", "There are so many food delivery unicorns, but could getting your food delivery be bad for the planet?", "Room 101", false, false, [speakers[0], speakers[3]], [allThemes[0]]),
-  new Talk(talkId++,new DateTime(2019, 12, 8, 12, 0), new DateTime(2019, 12, 8, 13, 0),
-      "Breakout startups",
-      "Are these the companies everyone will be talking about in 2020? Dozens of the world’s leading investors think so. Each morning and lunchtime on Centre Stage you’ll get an introduction to some of the world’s most exciting early and growth stage startups. Each of the startups have been hand-selected by some of the world’s most successful investors. You’re in for a treat.",
-      "Room 102", true, true, [speakers[1]], [allThemes[1], allThemes[2], allThemes[3]]),
-  new Talk(talkId++,new DateTime(2019, 12, 8, 14, 0), new DateTime(2019, 12, 8, 15, 0),
-      "Building the next great ad empire",
-      "One of the most prominent names in the advertising industry outlines his big vision for the industry.",
-      "Room 103", false,false, [speakers[3], speakers[3]], allThemes),
-  new Talk(talkId++,new DateTime(2019, 12, 8, 16, 0), new DateTime(2019, 12, 8, 17, 0),
-      "Welcome to the future of mobile robots",
-      "A pioneering company at the cutting edge of robotics showcases its vision for the future of robotic technology that interacts with the world.",
-      "Room 104", false,false, [speakers[2]], [allThemes[2]]),
-  new Talk(talkId++,new DateTime(2019, 12, 10, 9, 0), new DateTime(2019, 12, 10, 10, 0),
-      "Predicting the future of brand design",
-      "Despite cultural, political and technological change, one thing remains constant: Companies will keep trying to sell you stuff, and they’ll keep coming up with new ways to do it. Let's hear what the experts think of where the industry is going.",
-      "Room 105", false,false,[speakers[3]], [allThemes[3]]),
-  new Talk(talkId++,new DateTime(2019, 12, 10, 16, 0), new DateTime(2019, 12, 10, 17, 30),
-      "Learn to win",
-      "DJI presents a ground-breaking educational robot that helps to understand science, programming and more through captivating gameplay modes and intelligent features.",
-      "Room 106", true,true, [speakers[0]], [allThemes[3]]),
-];
+import 'package:open_cx/Screens/Schedule/addMeeting.dart';
+import 'Session.dart';
+import 'Calendar.dart';
 
 
 class SchedulePage extends StatefulWidget {
-  SchedulePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _SchedulePageState createState() => _SchedulePageState();
 }
 
-
 class _SchedulePageState extends State<SchedulePage> {
-  int _selectedPageIndex = 0;
+  DateTime _dateTime;
+  TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
+  String _selectedPlatform;
 
-  final List<Widget> _children = [
-    ProgramPage(talkList, user, allThemes),
-    VenuePage(talkList, user, allThemes),
-    PeoplePage(talkList, user, allThemes),
-    HelpPage(talkList, user, allThemes),
-  ];
+  bool _isHidden = true;
+  String dropdownValue;
+
+  void _toggleVisibility() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      body:_children[_selectedPageIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.access_time),
-            title: Text(
-              'Program',
+    
+      backgroundColor: Color(0xFF9CBDCE),
+      resizeToAvoidBottomPadding: false,
+
+      body: Container(
+        //padding: EdgeInsets.only(top: 100.0, bottom: 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+
+            AppBar(
+              title: Text('SCHEDULE'),
+              
+              actions:[buildButtonContainer("+")],
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
-            title: Text(
-              'Venue',
+            
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform, "https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers")])
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildButtonContainer(String name) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          return new AddMeetingPage();
+        }
+        )
+        );
+      },
+      child: Container(
+        height: 40.0,
+        width: MediaQuery.of(context).size.width / 3,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Center(
+          child: Icon(
+                  Icons.add_circle_outline,
+                  size: 40
+                ),
+          /*child: Text(
+            name,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            title: Text(
-              'People',
+          ),*/
+        ),
+      ),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.blue,
+        // This makes the visual density adapt to the platform that you run
+        // the app on. For desktop platforms, the controls will be smaller and
+        // closer together (more dense) than on mobile platforms.
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: CreateSession(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class CreateSession extends StatefulWidget {
+  CreateSession({Key key, this.title}) : super(key: key);
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  _CreateSessionState createState() => _CreateSessionState();
+}
+
+class _CreateSessionState extends State<CreateSession> {
+  DateTime _dateTime;
+  TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
+  String _selectedPlatform;
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+
+        child: Column(
+          
+          mainAxisAlignment: MainAxisAlignment.center,
+
+          children: <Widget>[
+            /*TextField(
+              decoration: InputDecoration(
+                  border: new OutlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.teal)
+                  ),
+                  hintText: 'Name of the Session'
+              ),
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.help),
-            title: Text(
-              'Help',
+
+            //Text(_dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()), Não ligues a isto
+            RaisedButton(
+              child: Text(_dateTime == null ? 'Date: ' : 'Date: ' +  _dateTime.day.toString() + '/' + _dateTime.month.toString() + '/' + _dateTime.year.toString()),
+              onPressed: () {
+                showDatePicker(
+                    context: context,
+                    initialDate: _dateTime == null ? DateTime.now() : _dateTime,
+                    firstDate: DateTime(2001),
+                    lastDate: DateTime(2021)
+                ).then((date) {
+                  setState(() {
+                    _dateTime = date;
+                  });
+                });
+              },
             ),
-          ),
-        ],
-        currentIndex: _selectedPageIndex,
-        unselectedItemColor: Color(0xFF28316C),
-        selectedItemColor: Color(0xFF28316C),
-        selectedIconTheme: IconThemeData(size: 38, color: Color(0xFF28316C)),
-        unselectedIconTheme: IconThemeData(size: 25, color: Color(0x9F28316C)),
-        onTap: (index) => setState( () {_selectedPageIndex = index; } )
+
+            RaisedButton(
+              child: Text(_initialTimeOfDay == null ? 'Initial Time: ' : 'Initial time: ' +  _initialTimeOfDay.hour.toString() + ":" + _initialTimeOfDay.minute.toString()),
+              onPressed: () {
+                showTimePicker(
+                  context: context,
+                  initialTime: _initialTimeOfDay == null ? TimeOfDay.now() : _initialTimeOfDay,
+                ).then((time) {
+                  setState(() {
+                    _initialTimeOfDay = time;
+                  });
+                });
+              },
+            ),
+
+            RaisedButton(
+              child: Text(_finalTimeOfDay == null ? 'Final Time: ' : 'Final time: ' +  _finalTimeOfDay.hour.toString() + ":" + _finalTimeOfDay.minute.toString()),
+              onPressed: () {
+                showTimePicker(
+                  context: context,
+                  initialTime: _finalTimeOfDay == null ? TimeOfDay.now() : _finalTimeOfDay,
+                ).then((time) {
+                  setState(() {
+                    _finalTimeOfDay = time;
+                  });
+                });
+              },
+            ),
+
+            DropdownButton<String>(
+              hint: Text('Platform'),
+              value: _selectedPlatform,
+              onChanged: (platform) {
+                setState(() {
+                  _selectedPlatform = platform;
+                });
+              },
+              items: <String>['Zoom', 'Teams', 'Other'].map((String value) {
+                return new DropdownMenuItem<String>(
+                  value: value,
+                  child: new Text(value),
+                );
+              }).toList(),
+            ),*/
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform, "https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers")])
+          ],
+        ),
       ),
     );
   }
