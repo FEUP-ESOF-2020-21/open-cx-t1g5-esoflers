@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Schedule/schedule.dart';
 
 import '../MenuOpen.dart';
 
@@ -93,7 +94,7 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          return new MenuPage();
+          return new SchedulePage();
         }
         )
         );

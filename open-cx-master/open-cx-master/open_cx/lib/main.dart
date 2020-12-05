@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:open_cx/AgendApp.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
+import 'package:open_cx/Screens/Schedule/viewMeeting.dart';
 
 import 'Screens/Login/login.dart';
 import 'Screens/Login/signUp.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/login": (context) => LoginPage(),//CreateMeeting(),//AddMeetingPage(),//EditScheduleMenu(),//MenuPage(),//LoginPage(),
+        "/login": (context) => LoginPage(),//ViewMeeting(),//CreateMeeting(),//AddMeetingPage(),//EditScheduleMenu(),//MenuPage(),//LoginPage(),
         "/signUp": (context) => SignUpPage(), //SchedulePage(), //EditMeeting(),//SignUpPage(),
         //"/agendAppMain": (context) => AgendAppMain()
       },

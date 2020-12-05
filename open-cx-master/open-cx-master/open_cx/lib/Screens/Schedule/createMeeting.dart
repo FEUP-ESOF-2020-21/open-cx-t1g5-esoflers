@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Program/TalkPage/TalkPage.dart';
+import 'package:open_cx/Screens/Schedule/schedule.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
 
 class CreateMeeting extends StatefulWidget {
@@ -182,7 +183,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             case "CANCEL":
               return MenuPage();
             case "NEXT":
-               return TalkPage();
+               return SchedulePage();
             default:
           }
         }
