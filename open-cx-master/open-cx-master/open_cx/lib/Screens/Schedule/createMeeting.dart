@@ -3,6 +3,8 @@ import 'package:open_cx/Screens/Program/TalkPage/TalkPage.dart';
 import 'package:open_cx/Screens/Schedule/schedule.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
 
+import 'Session.dart';
+
 class CreateMeeting extends StatefulWidget {
   @override
   _CreateMeetingPageState createState() => _CreateMeetingPageState();
@@ -10,6 +12,7 @@ class CreateMeeting extends StatefulWidget {
 
 class _CreateMeetingPageState extends State<CreateMeeting> {
   bool _isHidden = true;
+  String _name, _description;
   DateTime _dateTime;
   TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
   String _selectedPlatform;
@@ -54,6 +57,10 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                         borderSide: new BorderSide(color: Colors.teal)
                     ),
                 ),
+                onChanged: (value) {
+                  _name = value;
+                  print("The value entered is : $value");
+                }
             ),
 
             SizedBox(
@@ -68,6 +75,10 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                         borderSide: new BorderSide(color: Colors.teal)
                     ),
                 ),
+                onChanged: (value) {
+                  _description = value;
+                  print("The value entered is : $value");
+                }
             ),
 
             SizedBox(
@@ -183,7 +194,9 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             case "CANCEL":
               return MenuPage();
             case "NEXT":
-               return SchedulePage();
+               return SchedulePage(
+                 sessionToAdd: new Session(0, _name, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform),
+               );
             default:
           }
         }

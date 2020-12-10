@@ -21,10 +21,11 @@ class CalendarState extends State<Calendar> {
   int numBlocks = 0;
   double blockSize = 0.04;
   double visibleHeightFactor = 0.8;
+  int numberOfDaysToDisplay = 7;
   ScrollController _controller1;
   ScrollController _controller2;
 
-  List<DateTime> daysList = [new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 9, 8, 0),new DateTime(2019, 12, 10, 8, 0),new DateTime(2019, 12, 11, 8, 0),new DateTime(2019, 12, 12, 8, 0),new DateTime(2019, 12, 13, 8, 0)];
+  //List<DateTime> daysList = [new DateTime(2019, 12, 8, 8, 0), new DateTime(2019, 12, 9, 8, 0),new DateTime(2019, 12, 10, 8, 0),new DateTime(2019, 12, 11, 8, 0),new DateTime(2019, 12, 12, 8, 0),new DateTime(2019, 12, 13, 8, 0)];
   List<ScrollController> controllers = new List<ScrollController>();
 
   /*final List<String> timeInterval = [
@@ -33,9 +34,11 @@ class CalendarState extends State<Calendar> {
   ];*/
 
   final List<String> timeInterval = [];
+  List<DateTime> daysList = [];
 
   CalendarState() {
     createTimeIntervals();
+    createDayList();
   }
   
   void createTimeIntervals() {
@@ -43,6 +46,20 @@ class CalendarState extends State<Calendar> {
       timeInterval.add(createTimeString(i, 0));
       timeInterval.add(createTimeString(i, 30));
     }
+  }
+
+  void createDayList() {
+    // get current date
+    DateTime today = new DateTime.now();
+    daysList.add(today);
+
+    for (int i = 1; i < 6; i++) {
+      daysList.add(today.add(new Duration(days: i)));
+    }
+
+    /*for (int i = 10; i < 16; i++) {
+      daysList.add(new DateTime(2019, 12, i, 8, 0));
+    }*/
   }
 
   String createTimeString(int hour, int minute) {
@@ -161,7 +178,7 @@ class CalendarState extends State<Calendar> {
               /*onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)  => TalkPage(talk: widget.talkList[j])));
               },*/
-            onTap: () => launch('https://www.facebook.com/'),
+            //onTap: () => launch('https://www.facebook.com/'),
             child: Container(
                 color: widget.sessionList[j].color,
                 height: MediaQuery.of(context).size.height * blockSize * numBlocks,

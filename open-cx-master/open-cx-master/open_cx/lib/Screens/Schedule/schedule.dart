@@ -5,8 +5,14 @@ import 'Calendar.dart';
 
 
 class SchedulePage extends StatefulWidget {
+  final Session sessionToAdd;
+  final List<Session> allSessions = [];
+
+  SchedulePage({this.sessionToAdd});
+
   @override
   _SchedulePageState createState() => _SchedulePageState();
+
 }
 
 class _SchedulePageState extends State<SchedulePage> {
@@ -43,7 +49,7 @@ class _SchedulePageState extends State<SchedulePage> {
               actions:[buildButtonContainer("+")],
             ),
             
-            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform, "https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers")])
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 10), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
           ],
         ),
       ),
@@ -223,7 +229,7 @@ class _CreateSessionState extends State<CreateSession> {
                 );
               }).toList(),
             ),*/
-            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform, "https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers")])
+            Calendar([new Session(1, "ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
           ],
         ),
       ),
