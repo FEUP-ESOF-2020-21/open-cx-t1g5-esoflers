@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Schedule/addMeeting.dart';
-import 'Session.dart';
+import 'package:open_cx/Screens/Schedule/globals.dart';
 import 'Calendar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class SchedulePage extends StatefulWidget {
@@ -43,7 +44,7 @@ class _SchedulePageState extends State<SchedulePage> {
               actions:[buildButtonContainer("+")],
             ),
             
-            Calendar([new Session("ola", new DateTime(2020, 12, 10), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
+            Calendar(sessions)
           ],
         ),
       ),
@@ -223,7 +224,7 @@ class _CreateSessionState extends State<CreateSession> {
                 );
               }).toList(),
             ),*/
-            Calendar([new Session("ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
+            //Calendar([new Session("ola", new DateTime(2020, 12, 8), new TimeOfDay(hour: 16, minute: 0), new TimeOfDay(hour: 17, minute: 30), _selectedPlatform)])
           ],
         ),
       ),

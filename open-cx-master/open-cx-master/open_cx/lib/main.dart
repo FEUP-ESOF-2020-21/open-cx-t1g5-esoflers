@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:open_cx/AgendApp.dart';
@@ -8,8 +9,11 @@ import 'Screens/Login/login.dart';
 import 'Screens/Login/signUp.dart';
 import 'Screens/Schedule/editMeeting.dart';
 import 'Screens/Schedule/schedule.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color(0xFF9CBDCE), // status bar color
   ));
@@ -17,6 +21,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
+  //CollectionReference sessionsCollection = FirebaseFirestore.instance.collection("Sessions");
+  Future<Null> sessions = FirebaseFirestore.instance.collection("Sessions").get().then((value) {
+    var docs = value.docs;
+    for (int i = 0; i < docs.length; i++) {
+      print(docs[i]['name']);
+    }
+  });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

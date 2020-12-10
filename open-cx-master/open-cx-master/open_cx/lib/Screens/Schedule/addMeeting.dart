@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Schedule/Session.dart';
+import 'package:open_cx/Screens/Schedule/globals.dart';
 import 'package:open_cx/Screens/Schedule/schedule.dart';
 
 import '../MenuOpen.dart';
@@ -17,6 +19,27 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  List<String> createSessionsDropList() {
+    List<String> sessionsName = [];
+
+    for (int i = 0; i < allSessions.length; i++) {
+      sessionsName.add(allSessions[i].name);
+    }
+
+    return sessionsName;
+  }
+
+  void addSessionToCalendar(String name) {
+    int removeIndex = 0;
+    for (int i = 0; i < allSessions.length; i++) {
+      if (allSessions[i].name == name) {
+        sessionsCalendar.add(allSessions[i]);
+        removeIndex = i;
+      }
+    }
+    allSessions.removeAt(removeIndex);
   }
 
   @override
@@ -57,7 +80,7 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
                   dropdownValue = newValue;
                 });
               },
-              items: <String>['id1', 'id2', 'id3', 'id4'].map<DropdownMenuItem<String>>((String value) {
+              items: createSessionsDropList().map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
