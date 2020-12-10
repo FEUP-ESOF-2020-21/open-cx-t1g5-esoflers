@@ -1,7 +1,13 @@
+import 'dart:io';
+import 'dart:async';
+import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Program/TalkPage/TalkPage.dart';
 import 'package:open_cx/Screens/Schedule/schedule.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'Session.dart';
 
@@ -21,6 +27,28 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
     setState(() {
       _isHidden = !_isHidden;
     });
+  }
+
+  Future<String> getFilePath() async {
+    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory(); // 1
+    String appDocumentsPath = appDocumentsDirectory.path; // 2
+    String filePath = '$appDocumentsPath/demoTextFile.txt'; // 3
+
+    return filePath;
+  }
+
+  void saveFile() async {
+    File file = File(await getFilePath()); // 1
+    file.writeAsString("Parece facil!!!"); // 2
+
+    print("Sera que vai funcionar?");
+  }
+
+  void readFile() async {
+    File file = File(await getFilePath()); // 1
+    String fileContent = await file.readAsString(); // 2
+
+    print('File Content: $fileContent');
   }
 
   @override
@@ -194,9 +222,9 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             case "CANCEL":
               return MenuPage();
             case "NEXT":
-               return SchedulePage(
-                 sessionToAdd: new Session(0, _name, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform),
-               );
+              saveFile();
+              readFile();
+               return SchedulePage();
             default:
           }
         }

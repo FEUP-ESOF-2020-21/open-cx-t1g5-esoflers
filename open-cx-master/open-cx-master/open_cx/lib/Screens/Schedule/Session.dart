@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Session {
-  int id;
   String name;
   DateTime date;
   TimeOfDay initialTime, finalTime;
   String platform;
   Color color;
-  String link;
+  String showCalendar;
 
-  Session (int id, String name, DateTime date, TimeOfDay initialTime, TimeOfDay finalTime, String platform) {
-    this.id = id;
+  Session (String name, DateTime date, TimeOfDay initialTime, TimeOfDay finalTime, String platform) {
     this.name = name;
     this.date = date;
     this.initialTime = initialTime;
     this.finalTime = finalTime;
     this.platform = platform;
+    this.showCalendar = "FALSE";
     color = new Color(0xFFFF9000);
   }
 }
