@@ -33,10 +33,35 @@ class SessionsDatabase {
       'name': session.name,
       'description': session.description,
       'date': session.date.toString(),
-      'initialTime': session.initialTime.toString(),
-      'finalTime': session.finalTime.toString(),
+      'initialTime': session.initialTime.hour.toString() + ":" + session.initialTime.minute.toString(),
+      'finalTime': session.finalTime.hour.toString() + ":" + session.finalTime.minute.toString(),
       'platform': session.platform,
       'show': session.show
+    });
+  }
+  
+  void updateSession(Session session) {
+
+    for (Session s in this._sessions) {
+      if (s.getId() == session.getId()) {
+        s = session;
+        break;
+      }
+    }
+
+    FirebaseFirestore.instance.collection('Sessions').get().then((snapshot) {
+      for (DocumentSnapshot ds in snapshot.docs) {
+        if (ds['id'] == session.getId()) ds.reference.update({
+          'id': session.getId(),
+          'name': session.name,
+          'description': session.description,
+          'date': session.date.toString(),
+          'initialTime': session.initialTime.hour.toString() + ":" + session.initialTime.minute.toString(),
+          'finalTime': session.finalTime.hour.toString() + ":" + session.finalTime.minute.toString(),
+          'platform': session.platform,
+          'show': session.show
+        });
+      }
     });
   }
 
@@ -50,7 +75,7 @@ class SessionsDatabase {
     }
     this._sessions.removeAt(removeIndex);
 
-    FirebaseFirestore.instance.collection('messages').get().then((snapshot) {
+    FirebaseFirestore.instance.collection('Sessions').get().then((snapshot) {
       for (DocumentSnapshot ds in snapshot.docs) {
         if (ds['id'] == id) ds.reference.delete();
       }
@@ -67,5 +92,12 @@ class SessionsDatabase {
       if (session.show) showSessions.add(session);
     }
     return showSessions;
+  }
+
+  Session getSessionById(int id) {
+    for (Session session in this._sessions) {
+      if (session.getId() == id) return session;
+    }
+    return new Session();
   }
 }

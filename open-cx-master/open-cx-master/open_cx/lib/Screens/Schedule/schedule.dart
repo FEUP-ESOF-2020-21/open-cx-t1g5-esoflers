@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Schedule/addMeeting.dart';
-import 'package:open_cx/Screens/Schedule/globals.dart';
+import 'package:open_cx/globals.dart';
 import 'Calendar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -11,9 +9,6 @@ class SchedulePage extends StatefulWidget {
 }
 
 class _SchedulePageState extends State<SchedulePage> {
-  DateTime _dateTime;
-  TimeOfDay _initialTimeOfDay, _finalTimeOfDay;
-  String _selectedPlatform;
 
   bool _isHidden = true;
   String dropdownValue;
@@ -33,7 +28,6 @@ class _SchedulePageState extends State<SchedulePage> {
       resizeToAvoidBottomPadding: false,
 
       body: Container(
-        //padding: EdgeInsets.only(top: 100.0, bottom: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -44,7 +38,7 @@ class _SchedulePageState extends State<SchedulePage> {
               actions:[buildButtonContainer("+")],
             ),
             
-            Calendar(sessions)
+            Calendar(sessionsDatabase.getShowSessions())
           ],
         ),
       ),
@@ -70,15 +64,7 @@ class _SchedulePageState extends State<SchedulePage> {
           child: Icon(
                   Icons.add_circle_outline,
                   size: 40
-                ),
-          /*child: Text(
-            name,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),*/
+                )
         ),
       ),
     );

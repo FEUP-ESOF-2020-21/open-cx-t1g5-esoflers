@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Schedule/Session.dart';
-import 'package:open_cx/Screens/Schedule/globals.dart';
 import 'package:open_cx/Screens/Schedule/schedule.dart';
 import 'package:open_cx/Screens/Menu/mainMenu.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:open_cx/globals.dart';
 
 class CreateMeeting extends StatefulWidget {
   @override
@@ -22,36 +21,6 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
       _isHidden = !_isHidden;
     });
   }
-
-  void addSessionToList() {
-    allSessions.add(new Session(_name, _description, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform));
-  }
-
-  /*Future<String> getFilePath() async {
-    Directory appDocumentsDirectory = await getApplicationDocumentsDirectory(); // 1
-    String appDocumentsPath = appDocumentsDirectory.path; // 2
-    String filePath = '$appDocumentsPath/sessions.txt'; // 3
-
-    return filePath;
-  }*/
-
-  /*void saveFile() async {
-    File file = File(await getFilePath()); // 1
-    file.writeAsString("Parece facil!!!"); // 2
-
-    print("Sera que vai funcionar?");
-  }
-
-  void readFile() async {
-    File file = File(await getFilePath()); // 1
-    String fileContent = await file.readAsString(); // 2
-
-    print('File Content: $fileContent');
-  }
-
-  String convertToString() {
-    return _name + ";" + _description + ";" + _dateTime.toString() + ";" + _initialTimeOfDay.toString() + ";" + _finalTimeOfDay.toString() + ";" + _selectedPlatform;
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +58,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                 ),
                 onChanged: (value) {
                   _name = value;
-                  print("The value entered is : $value");
+
                 }
             ),
 
@@ -107,7 +76,6 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
                 ),
                 onChanged: (value) {
                   _description = value;
-                  print("The value entered is : $value");
                 }
             ),
 
@@ -115,7 +83,6 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
               height: 50.0,
             ),
 
-            //Text(_dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()),
             RaisedButton(
               child: Text(_dateTime == null ? 'Date: ' : 'Date: ' +  _dateTime.day.toString() + '/' + _dateTime.month.toString() + '/' + _dateTime.year.toString()),
               onPressed: () {
@@ -224,8 +191,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             case "CANCEL":
               return MenuPage();
             case "NEXT":
-
-              addSessionToList();
+              sessionsDatabase.addSession(new Session(_name, _description, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform, false));
                return SchedulePage();
             default:
           }

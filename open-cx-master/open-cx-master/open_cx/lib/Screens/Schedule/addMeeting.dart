@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Screens/Schedule/Session.dart';
-import 'package:open_cx/Screens/Schedule/globals.dart';
 import 'package:open_cx/Screens/Schedule/schedule.dart';
-
-import '../MenuOpen.dart';
-
+import 'package:open_cx/globals.dart';
 
 class AddMeetingPage extends StatefulWidget {
   @override
@@ -21,25 +18,20 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
     });
   }
 
-  List<String> createSessionsDropList() {
-    List<String> sessionsName = [];
-
-    for (int i = 0; i < allSessions.length; i++) {
-      sessionsName.add(allSessions[i].name);
+  List<String> createSessionsDropDownList() {
+    List<String> sessionsNameId = [];
+    for (Session session in sessionsDatabase.getAllSessions()) {
+      if (!session.show)
+        sessionsNameId.add(session.name + " [" + session.getId().toString() + "]");
     }
-
-    return sessionsName;
+    return sessionsNameId;
   }
 
-  void addSessionToCalendar(String name) {
-    int removeIndex = 0;
-    for (int i = 0; i < allSessions.length; i++) {
-      if (allSessions[i].name == name) {
-        sessionsCalendar.add(allSessions[i]);
-        removeIndex = i;
-      }
-    }
-    allSessions.removeAt(removeIndex);
+  int parseId(String value) {
+    int firstIndex = value.indexOf('[') + 1;
+    int lastIndex = value.indexOf(']');
+    String strId = value.substring(firstIndex, lastIndex);
+    return int.parse(strId);
   }
 
   @override
@@ -71,7 +63,7 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
             SizedBox(height: 100.0),
 
             DropdownButton<String>(
-              hint: Text('IDs'),
+              hint: Text('Sessions'),
               value: dropdownValue,
               dropdownColor: Color(0xA6A6A6A6),
               style: TextStyle(color: Colors.black),
@@ -80,7 +72,7 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
                   dropdownValue = newValue;
                 });
               },
-              items: createSessionsDropList().map<DropdownMenuItem<String>>((String value) {
+              items: createSessionsDropDownList().map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -117,6 +109,13 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+          if (name == "NEXT") {
+            Session sessionToShow =  sessionsDatabase.getSessionById(parseId(dropdownValue));
+
+            Session newSession = new Session(sessionToShow.name, sessionToShow.description, sessionToShow.date, sessionToShow.initialTime, sessionToShow.finalTime, sessionToShow.platform, true);
+            newSession.setId(sessionToShow.getId());
+            sessionsDatabase.updateSession(newSession);
+          }
           return new SchedulePage();
         }
         )
