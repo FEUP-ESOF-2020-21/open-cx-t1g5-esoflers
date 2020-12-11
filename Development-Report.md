@@ -185,20 +185,17 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
-  
   * The actor sees the "Profile" page.
-  
   * The actor selects the edit icon.
   
   * The actor sees the "Edit Profile" page.
   
   * The actor selects the meeting to edit.
-  
+
   * The actor changes the necessary spaces.
-  
   * The actor must press de "Next" button to confirm.
   
-  * **Normal Flow:** 
+* **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
   

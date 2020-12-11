@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/luis/Documentos/FEUP/ESOF/T1G5/open-cx-master/open-cx-master/open_cx/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/cdcb21ce1a8a7fa61d511923b4b75aa1/core-1.1.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/luis/Documentos/FEUP/ESOF/T1G5/open-cx-master/open-cx-master/open_cx/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/cdcb21ce1a8a7fa61d511923b4b75aa1/core-1.1.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/luis/Documentos/FEUP/ESOF/T1G5/open-cx-master/open-cx-master/open_cx/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/cdcb21ce1a8a7fa61d511923b4b75aa1/core-1.1.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/luis/Documentos/FEUP/ESOF/T1G5/open-cx-master/open-cx-master/open_cx/build/url_launcher/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/luis/.gradle/caches/transforms-2/files-2.1/cdcb21ce1a8a7fa61d511923b4b75aa1/core-1.1.0/res/layout-v21/notification_action_tombstone.xml"
+    }
+]
