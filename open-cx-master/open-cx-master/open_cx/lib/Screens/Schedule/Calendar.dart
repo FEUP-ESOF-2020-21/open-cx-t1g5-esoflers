@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:open_cx/Screens/Schedule/editMeeting.dart';
 import 'Session.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -175,9 +176,9 @@ class CalendarState extends State<Calendar> {
               width: MediaQuery.of(context).size.width,
             ),
             GestureDetector(
-              /*onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)  => TalkPage(talk: widget.talkList[j])));
-              },*/
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)  => EditMeeting()));
+              },
             //onTap: () => launch('https://www.facebook.com/'),
             child: Container(
                 color: widget.sessionList[j].color,

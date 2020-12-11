@@ -41,13 +41,21 @@ class SessionsDatabase {
   }
   
   void updateSession(Session session) {
-
-    for (Session s in this._sessions) {
-      if (s.getId() == session.getId()) {
-        s = session;
+    
+    for (int i = 0; i < this._sessions.length; i++) {
+      if (this._sessions[i].getId() == session.getId()) {
+        this._sessions[i] = session;
         break;
       }
     }
+
+    /*for (Session s in this._sessions) {
+      if (s.getId() == session.getId()) {
+        s.name = session.name;
+        s = session
+        break;
+      }
+    }*/
 
     FirebaseFirestore.instance.collection('Sessions').get().then((snapshot) {
       for (DocumentSnapshot ds in snapshot.docs) {

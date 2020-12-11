@@ -191,7 +191,7 @@ class _CreateMeetingPageState extends State<CreateMeeting> {
             case "CANCEL":
               return MenuPage();
             case "NEXT":
-              sessionsDatabase.addSession(new Session(_name, _description, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform, false));
+              sessionsDatabase.addSession(new Session(_name, _description, _dateTime, _initialTimeOfDay, _finalTimeOfDay, _selectedPlatform, true));
                return SchedulePage();
             default:
           }
