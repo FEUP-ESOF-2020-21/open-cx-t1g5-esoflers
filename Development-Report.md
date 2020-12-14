@@ -85,34 +85,32 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ![Use case diagram](./use_case_diagram.png)
 
-#### **Participate in a Meeting**
+#### **Participate in a Meeting/Session**
 
 * **Actor:** User
 
-* **Description:** Each user can participate in a meeting, which can be private or public.
+* **Description:** Each user can participate in a meeting which can be private or public.
 
-* **Preconditions and Postconditions:** To participate in a meeting the user must be authenticated in the application. How ever, if it is a private meeting, the user must be invited to that meeting.
+* **Preconditions and Postconditions:** To participate in a meeting the user must be authenticated in the application. However, if it is a private meeting, the user must be invited to that meeting.
 
 * **Normal Flow:** 
   
   * In the "Schedule" page, the actor selects the meeting link to attend.
 
-* **Alternative Flows:**
+* **Alternative Flows and Exceptions::**
   
   * In the "Menu" page, the actor selects the "Schedule" page.
   * In the "Schedule" page, the actor selects the meeting link to attend.
-
-* **Alternative Flows and Exceptions:** Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. (**Ocorreu-me a possibilidade de o host da meeting ainda não a ter iniciado um aviso ao utilizador**)
 
 #### **Receive Notifications**
 
 * **Actor:** User
 
-* **Description:** The user can receive a notification to notify them of a future meeting.
+* **Description:** The user can receive a notification to remind them of a future meeting.
 
-* **Preconditions and Postconditions:** To receive notification the user must be authenticated in the application, and have the phone notifications active.
+* **Preconditions and Postconditions:** To receive notification the user must be authenticated in the application, and have the app notifications active.
 
-* **Normal Flow:** ???????????????????????????????
+* **Normal Flow:** A Notification is shown to the user when a meeting in the user calendar is about to start.
 
 #### **View Personal Schedule**
 
@@ -185,16 +183,19 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
+  
   * The actor sees the "Profile" page.
+  
   * The actor selects the edit icon.
   
   * The actor sees the "Edit Profile" page.
   
   * The actor selects the meeting to edit.
-
-  * The actor changes the necessary spaces.
-  * The actor must press de "Next" button to confirm.
   
+  * The actor changes the necessary spaces.
+  
+  * The actor must press de "Next" button to confirm.
+
 * **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
