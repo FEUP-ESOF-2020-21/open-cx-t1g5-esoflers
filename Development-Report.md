@@ -302,9 +302,22 @@ At the end, it is good to add a rough indication of the value of the user story 
 | Given | When | Then
 |--|--|--|
 | The page to add a meeting to the personal schedule | User selects a meeting from existing meetings | A new meeting is added to his personal schedule
-| The page to delete a meeting from the personal schedule | User selects a meeting to delete | That meeting will no longer appear on the personal calendar
+| The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar
 
+#### **Story** #4
 
+ *User Storie:* As a host, I want a permenant record of meetings.
+
+ *Value:* Must Have.
+
+ *Effort:* L
+
+ *Acceptance tests:* 
+| Given | When | Then
+|--|--|--|
+| The page to create a meeting | User finalizes the creation of the meeting | A new meeting is created with a unique id.
+| The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to a list of meetings
+| The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to the personal schedule of the host
 
 #### User story map
 
