@@ -72,14 +72,14 @@ For the usage of the module it is required that the user has a mobile phone with
 For full funtionality it is reccommended to have notifications enabled.  
 Android version=>8.0  
 Ios version>=Ios 10.0.0  
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
 ---
 
 ## Requirements
 
-Como principais requesitos do aplicativo Video Session Toolkit, damos a possibilidade de o utilizador criar video-conferências ou assistir a video-conferências do seu interesse. De modo a facilitar o acesso às video-conferências do interesse ao utilizador, iremos fornecer uma estrutura organizada onde o utilizador poderá encontrar todas as video-conferências escolhidas. Receberem notificações previamente antes de cada video conferencia comecar, para puderem sem preocupação chegar a tempo ao início delas.
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
+With Video Session Toolkit participating in interesting sessions at a conference or setting virtual encounters with other participants is easy and practical. With its calendar and video apps integration, there is no hassle in setting up a virtual room or in finding the correct session link. Additionally, a reminder before any meeting will help to be right on time, everytime.
+
+<!--Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.-->
 
 ### Use case diagram
 
@@ -95,7 +95,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 * **Normal Flow:** 
   
-  * In the "Schedule" page, the actor selects the meeting link to attend.
+  * In the "Schedule" page, the user selects the meeting link to attend.
 
 * **Alternative Flows and Exceptions::**
   
@@ -153,15 +153,15 @@ Start by contextualizing your module, describing the main concepts, terms, roles
   * The actor sees the "Remove Meeting" page.
   * The actor selects the meetings to remove and presses the "Next" button to confirm.
 
-* **Alternative Flowsions:**
+* **Alternative Flow:**
   
   * In the "Edit Schedule" page, the actor presses the "Cancel" to return to the previous page.
 
-* **Alternative Flows**
+* **Alternative Flow:**
   
   * In the "Remove Meeting" page, the actor presses the "Cancel" to return to the previous page.
 
-* **Alternative Flows**
+* **Alternative Flow:**
   
   * In the "Add Meeting" page, the actor presses the "Cancel" to return to the previous page.
 
@@ -183,31 +183,20 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 * **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
-  
   * The actor sees the "Profile" page.
-  
   * The actor selects the edit icon.
-  
   * The actor sees the "Edit Profile" page.
-  
   * The actor selects the meeting to edit.
-  
-  * The actor changes the necessary spaces.
-  
+  * The actor changes the necessary spaces.  
   * The actor must press de "Next" button to confirm.
 
 * **Normal Flow:** 
   
   * In the "Menu" page, the actor selects the "Profile" option.
-  
   * The actor sees the "Profile" page.
-  
   * The actor selects the edit icon.
-  
   * The actor sees the "Edit Profile" page.
-  
   * The actor selects the meeting to edit.
-  
   * The actor must press de "Delete Meeting" button to delete the meeting.
 
 * **Alternative Flows**
@@ -240,7 +229,7 @@ Start by contextualizing your module, describing the main concepts, terms, roles
 
 ### User stories
 
-This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
+<!--This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
@@ -258,52 +247,82 @@ After the user story text, you should add a draft of the corresponding user inte
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
 **Value and effort**.
-At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
+At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).-->
+
+#### User story map
+
+![User story map](./Video_session_toolkit.png)
 
 #### **Story** #1
 
- *User Storie:* As a host, I want an interface to the product.
+* User Storie: As a host, I want an interface to the product.
 
- *Value:* Must Have.
+* Value: Must Have.
 
- *Effort:* XL
+* Effort: XL
+  
+  ***Acceptance tests:***
+  
+  ```Gherkin
+  Scenario: Switching pages  
+   When I press the next button
+   Then a page other than the previous or actual page is shown.
+  ```
+  
+  * Interface mockups:
+    
+    <img title="" src="file:///home/luis/Documentos/FEUP/ESOF/T1G5/Prototype%20Design/1.png" alt="" width="204"><img title="" src="file:///home/luis/Documentos/FEUP/ESOF/T1G5/Prototype%20Design/4.png" alt="" width="203">
 
- *Acceptance tests:* 
-| Given | When | Then
-|--|--|--|
-| A button from each page | User clicks a button | The page changes to the accordingly
-
-<br>
+[See all mockups](./Prototype%20Design)
 
 #### **Story** #2
 
- *User Storie:* As a host, I want to create a meeting.
+* User Storie: As a host, I want to create a meeting.
 
- *Value:* Must Have.
+* Value: Must Have.
 
- *Effort:* L
+* Effort: L
+  
+  ***Acceptance tests:***
+  
+  ```Gherkin
+  Scenario: Creating a meeting page  
+   When I fill-in all the boxes
+  And I press the "next" button
+   Then a new meeting is created and added to a list of existing meetings and is visible in the calendar.
+  ```
 
- *Acceptance tests:* 
-| Given | When | Then
-|--|--|--|
-| The page to create a meeting | User fills all the necessary fields | A new meeting is created and added to a list of existing meetings
-| The page to create a meeting | User sets a date in the past | The creation of a meeting fails
+```Gherkin
+Scenario: Creating a meeting page  
+    When I fill-in all the boxes
+  And set the meetings date to a previous time
+  And I press the "next" button
+    Then fails to create a new meeting
+  And a red line is shown to the user indicating the wrong field.
+```
 
-<br>
+* Interface mockups:
+  ![]()calendar and meeting
 
 #### **Story** #3
 
- *User Storie:* As a host, I want to manage my schedule.
+* User Storie: As a host, I want to manage my schedule.
 
- *Value:* Must Have.
+* Value: Must Have.
 
- *Effort:* XL
+* Effort: XL
+  
+  ***Acceptance tests:***
 
- *Acceptance tests:* 
-| Given | When | Then
-|--|--|--|
-| The page to add a meeting to the personal schedule | User selects a meeting from existing meetings | A new meeting is added to his personal schedule
-| The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar
+| Given                                                 | When                                          | Then                                                        |
+| ----------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------- |
+| The page to add a meeting to the personal schedule    | User selects a meeting from existing meetings | A new meeting is added to his personal schedule             |
+| The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar |
+
+* Interface mockups:
+  
+  
+  <img title="" src="file:///home/luis/Documentos/FEUP/ESOF/T1G5/Prototype%20Design/13.png" alt="" width="246">
 
 #### **Story** #4
 
@@ -319,12 +338,6 @@ At the end, it is good to add a rough indication of the value of the user story 
 | The page to create a meeting | User finalizes the creation of the meeting | A new meeting is created with a unique id.
 | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to a list of meetings
 | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to the personal schedule of the host
-
-#### User story map
-
-![User story map](./Video_session_toolkit.png)
-
-<br>
 
 ### Domain model
 
@@ -353,9 +366,16 @@ It can be beneficial to present the system both in a horizontal or vertical deco
 
 ### Physical architecture
 
-The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
+The physical architecture of our project is divided into two parts, which are connected to each other.
+The Video Talk Toolkit app must be installed on the user's smartphone, and it 
+will connect with the database via HTTPS request to sync user's profile changes and update local information.
+The technologies used in this project were Flutter-Dart as the framework for our mobile application, Graddle for build automation and Firebase server for storage.
 
-It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).
+![](/home/luis/Documentos/FEUP/ESOF/T1G5/physical_architecture.png)
+
+<!--The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
+
+It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).-->
 
 ### Prototype
 
