@@ -1,3 +1,3 @@
-import 'package:open_cx/SessionsDatabase.dart';
+import 'Controller/SessionsDatabase.dart';
 
 SessionsDatabase sessionsDatabase = new SessionsDatabase();
