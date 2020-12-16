@@ -74,7 +74,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   _selectedPlatform = platform;
                 });
               },
-              items: <String>['ID1','ID2', 'ID3'].map((String value) {
+              items: <String>[].map((String value) {
                 return new DropdownMenuItem<String>(
                   value: value,
                   child: new Text(value),

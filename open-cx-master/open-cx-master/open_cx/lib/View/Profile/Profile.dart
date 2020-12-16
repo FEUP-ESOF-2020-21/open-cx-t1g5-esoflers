@@ -59,11 +59,11 @@ class _ProfilePageState extends State<ProfilePage> {
             
             SizedBox(height: 60.0),
 
-            buildTextField("Name"),
+            buildTextField("TestName"),
 
             SizedBox(height: 20.0),
 
-            buildTextField("Mail"),
+            buildTextField("testemail@email.com"),
 
             SizedBox(height: 170.0),
 
@@ -75,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   _selectedPlatform = platform;
                 });
               },
-              items: <String>['ID1','ID2', 'ID3'].map((String value) {
+              items: <String>[].map((String value) {
                 return new DropdownMenuItem<String>(
                   value: value,
                   child: new Text(value),
