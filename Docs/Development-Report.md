@@ -83,7 +83,7 @@ With Video Session Toolkit participating in interesting sessions at a conference
 
 ### Use case diagram
 
-![Use case diagram](./use_case_diagram.png)
+![Use case diagram](./tables%20and%20diagrams/use_case_diagram.png)
 
 #### **Participate in a Meeting/Session**
 
@@ -251,7 +251,7 @@ At the end, it is good to add a rough indication of the value of the user story 
 
 #### User story map
 
-![User story map](./Video_session_toolkit.png)
+![User story map](./tables%20and%20diagrams/Video_session_toolkit.png)
 
 #### **Story** #1
 
@@ -350,7 +350,7 @@ The video Session Toolkit intends to help organize a users schedule and conferen
  * The calendar olds the sessions.
  * Each user has a profile which olds information about the sessions he'll attend as well as the sessions created with other users (private sessions).
 
-<img src="./domain_model.png">
+<img src="./tables%20and%20diagrams/domain_model.png">
 
 
 ---
@@ -359,7 +359,6 @@ The video Session Toolkit intends to help organize a users schedule and conferen
 
 The program follows an MVC approach. The database and its querys are independent of its design and of the rendering. The screens translate into different states of the application and the screen buttons are widgets that redirect application to other states. All querys to the database are asyncronous.
 
-INSERT UML DIAGRAM
 
 ### Logical architecture
 
@@ -371,13 +370,15 @@ Following the MVC approach, we were able to highlight three different components
 
 - *View*: represents the visual representation of our application showing the respective data and being manipulated by the controller.
 
+<img src="./tables%20and%20diagrams/logical_architect.png"> 
+
 ### Physical architecture
 
 The physical architecture of our project is divided into two parts, which are connected to each other.
 The Video Talk Toolkit app must be installed on the user's smartphone, and it will connect with the database via HTTPS request to sync user's profile changes and update local information.
 The technologies used in this project were Flutter-Dart as the framework for our mobile application, Graddle for build automation and Firebase server for storage.
 
-![](./physical_architecture.png)
+![](./tables%20and%20diagrams/physical_architecture.png)
 
 <!--The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams or component diagrams (separate or integrated), showing the physical structure of the system.
 
