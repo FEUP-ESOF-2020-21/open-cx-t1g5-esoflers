@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_cx/Controller/AddMeeting.dart';
+import 'package:open_cx/View/Menu/Menu.dart';
 import 'package:open_cx/globals.dart';
 import '../../Model/Calendar.dart';
 import 'ListMeetings.dart';
@@ -27,12 +28,13 @@ class _SchedulePageState extends State<SchedulePage> {
           children: <Widget>[
 
             AppBar(
-              title: Text('SCHEDULE'),
-
               actions:[
-
+                buildButtonContainer(".", Icon(Icons.menu)),
                 buildButtonContainer("-", Icon(Icons.edit)),
                 buildButtonContainer("+", Icon(Icons.add_circle_outline))],
+
+              title: const Text('SCHEDULE'),
+              automaticallyImplyLeading: false,
             ),
             
             Calendar(sessionsDatabase.getShowSessions())
@@ -49,6 +51,8 @@ class _SchedulePageState extends State<SchedulePage> {
           switch (name) {
             case "+":
               return AddMeetingPage();
+            case ".":
+              return MenuPage();
             case "-":
                return ListMeetingPage();
             default:

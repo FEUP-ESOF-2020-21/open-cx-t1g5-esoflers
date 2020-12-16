@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Color(0xFF9CBDCE),
       resizeToAvoidBottomPadding: false,
       body: Container(
-        padding: EdgeInsets.only(top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
+        padding: EdgeInsets.only(top: 40.0, right: 25.0, left: 25.0, bottom: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -38,6 +38,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
               ),
             ),
+
+            SizedBox(height: 25.0),
 
             Text(
               'PROFILE',

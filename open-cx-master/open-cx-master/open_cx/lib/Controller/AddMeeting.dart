@@ -46,7 +46,7 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 50.0,
             ),
             Icon(
                 Icons.event,
@@ -102,14 +102,22 @@ class _AddMeetingPageState extends State<AddMeetingPage> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-          if (name == "NEXT") {
+          if (name == "NEXT" && dropdownValue != null) {
             Session sessionToShow =  sessionsDatabase.getSessionById(parseId(dropdownValue));
 
             Session newSession = new Session(sessionToShow.name, sessionToShow.description, sessionToShow.date, sessionToShow.initialTime, sessionToShow.finalTime, sessionToShow.platform, true);
             newSession.setId(sessionToShow.getId());
             sessionsDatabase.updateSession(newSession);
+            return SchedulePage();
+
           }
-          return SchedulePage();
+          if (name == "CANCEL") {
+            return SchedulePage();
+          }
+
+          else {
+            return AddMeetingPage();
+          }
         }
         )
         );

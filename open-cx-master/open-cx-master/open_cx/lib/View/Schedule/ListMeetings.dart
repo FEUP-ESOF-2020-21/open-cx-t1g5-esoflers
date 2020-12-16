@@ -39,15 +39,15 @@ class _ListMeetingPageState extends State<ListMeetingPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'MEETING TO EDIT',
+              'MEETINGS',
               style: TextStyle(
-                fontSize: 45.0,
+                fontSize: 50.0,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: 20.0,
+              height: 30.0,
             ),
             Icon(
                 Icons.event,
@@ -74,14 +74,14 @@ class _ListMeetingPageState extends State<ListMeetingPage> {
               }).toList(),
             ),
 
-            SizedBox(height: 300.0),
+            SizedBox(height: 320.0),
 
             Container(
               child: Row(
                 children: <Widget>[
                   Align(
                       alignment: Alignment.bottomLeft,
-                      child: buildButtonContainer("CANCEL")
+                      child: buildButtonContainer("RETURN")
                   ),
                   SizedBox(
                     width: 80.0,
@@ -105,8 +105,10 @@ class _ListMeetingPageState extends State<ListMeetingPage> {
         Navigator.of(context).push(MaterialPageRoute<Null>(builder: (BuildContext context) {
           switch (name) {
             case "NEXT":
-              return ViewMeeting(sessionsDatabase.getSessionById(parseId(dropdownValue)));
-            case "CANCEL":
+              if (dropdownValue != null)
+                return ViewMeeting(sessionsDatabase.getSessionById(parseId(dropdownValue)));
+              return ListMeetingPage();
+            case "RETURN":
               return SchedulePage();
             default:
               return null;

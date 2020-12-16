@@ -22,83 +22,93 @@ class _ViewMeetingPageState extends State<ViewMeeting> {
       body: Container(
         padding: EdgeInsets.only(top: 100.0, right: 25.0, left: 25.0, bottom: 0.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            
             Text(
-              'NAME: ' + widget.sessionToView.name,
+              widget.sessionToView.name,
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 50.0,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
             SizedBox(
-              height: 20.0,
+              height: 130.0,
             ),
 
-            Text(
-              'DESCRIPTION: ' + widget.sessionToView.description,
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Align(
+                      alignment: Alignment.bottomLeft,
+                  ),
+                  Text(
+                    'DESCRIPTION:   ' + widget.sessionToView.description,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 35.0,
+                  ),
+
+                  Text(
+                    'DATE:                   ' +  widget.sessionToView.date.day.toString() + '/' + widget.sessionToView.date.month.toString() + '/' + widget.sessionToView.date.year.toString(),
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 35.0,
+                  ),
+
+                  Text(
+                    'INITIAL TIME:     ' +  widget.sessionToView.initialTime.hour.toString() + "h" + widget.sessionToView.initialTime.minute.toString(),
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 35.0,
+                  ),
+
+                  Text(
+                    'FINAL TIME:       ' +  widget.sessionToView.finalTime.hour.toString() + "h" + widget.sessionToView.finalTime.minute.toString(),
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 35.0,
+                  ),
+
+                  Text(
+                    'PLATAFORM:     ' + widget.sessionToView.platform,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                ],
               ),
             ),
-            SizedBox(
-              height: 20.0,
-            ),
-          
-            Text(
-                'DATE: ' +  widget.sessionToView.date.day.toString() + '/' + widget.sessionToView.date.month.toString() + '/' + widget.sessionToView.date.year.toString(),
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
 
-            SizedBox(
-              height: 20.0,
-            ),
-
-            Text(
-                'INITIAL TIME: ' +  widget.sessionToView.initialTime.hour.toString() + ":" + widget.sessionToView.initialTime.minute.toString(),
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            SizedBox(
-              height: 20.0,
-            ),
-
-            Text(
-              'FINAL TIME: ' +  widget.sessionToView.finalTime.hour.toString() + ":" + widget.sessionToView.finalTime.minute.toString(),
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            
-            SizedBox(
-              height: 20.0,
-            ),
-
-            Text(
-              'PLATAFORM: ' + widget.sessionToView.platform,
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            SizedBox(height: 360.0),
+            SizedBox(height: 205.0),
 
             Container(
               child: Row(
@@ -107,6 +117,11 @@ class _ViewMeetingPageState extends State<ViewMeeting> {
                         alignment: Alignment.bottomLeft,
                         child: buildButtonContainer("RETURN")
                     ),
+
+                    SizedBox(
+                      width: 94.0,
+                    ),
+
                     Align(
                         alignment: Alignment.bottomRight,
                         child: buildButtonContainer("EDIT")
