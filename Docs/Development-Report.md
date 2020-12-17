@@ -260,18 +260,18 @@ At the end, it is good to add a rough indication of the value of the user story 
 * ***Value:*** Must Have.
 
 * ***Effort:*** XL
-  
-*  ##### ***Acceptance tests:*** #####
+
+* ##### ***Acceptance tests:***
   
   ```Gherkin
   Scenario: Switching pages  
-   When I press the next button
-   Then a page other than the previous or actual page is shown.
+  When I press the next button
+  Then a page other than the previous or actual page is shown.
   ```
-  
+
 * ***Interface mockups:***
-    
-    <img title="" src="./Prototype%20Design/1.png" alt="" width="204">
+  
+  <img title="" src="./Prototype%20Design/1.png" alt="" width="204">
     <img title="" src="./Prototype%20Design/4.png" alt="" width="203">
 
 [See all mockups](./Prototype%20Design)
@@ -283,27 +283,27 @@ At the end, it is good to add a rough indication of the value of the user story 
 * ***Value:*** Must Have.
 
 * ***Effort:*** L
-  
-*  ##### ***Acceptance tests:*** #####
-  
-  ```Gherkin
-  Scenario: Creating a meeting page  
-   When I fill-in all the boxes
-  And I press the "next" button
-   Then a new meeting is created And added to a list of existing meetings And is visible in the calendar.
-  ```
 
+* ##### ***Acceptance tests:***
+  
   ```Gherkin
   Scenario: Creating a meeting page  
-      When I fill-in all the boxes
-    And set the meetings date to a previous time
-    And I press the "next" button
-      Then fails to create a new meeting
-    And a red line is shown to the user indicating the wrong field.
+  When I fill-in all the boxes
+  And I press the "next" button
+  Then a new meeting is created And added to a list of existing meetings And is visible in the calendar.
+  ```
+  
+  ```Gherkin
+  Scenario: Creating a meeting page  
+     When I fill-in all the boxes
+   And set the meetings date to a previous time
+   And I press the "next" button
+     Then fails to create a new meeting
+   And a red line is shown to the user indicating the wrong field.
   ```
 
 * ***Interface mockups:*** 
-
+  
   <img src="./Prototype%20Design/5.png" alt="" width="246">
 
 #### **Story** #3
@@ -313,19 +313,17 @@ At the end, it is good to add a rough indication of the value of the user story 
 * ***Value:*** Must Have.
 
 * ***Effort:*** XL
+
+* ##### ***Acceptance tests:***
   
-*  ##### ***Acceptance tests:*** #####
-
-    | Given | When | Then
-    |--|--|--|
-    | The page to add a meeting to the personal schedule    | User selects a meeting from existing meetings | A new meeting is added to his personal schedule             |
-    | The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar 
-
+  | Given                                                 | When                                          | Then                                                        |
+  | ----------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------- |
+  | The page to add a meeting to the personal schedule    | User selects a meeting from existing meetings | A new meeting is added to his personal schedule             |
+  | The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar |
 
 * ***Interface mockups:***
-  
-  
-  <img src="./Prototype%20Design/13.png" alt="" width="246">
+
+<img src="./Prototype%20Design/13.png" alt="" width="246">
 
 #### **Story** #4
 
@@ -335,30 +333,29 @@ At the end, it is good to add a rough indication of the value of the user story 
 
 * ***Effort:*** L
 
-* ##### ***Acceptance tests:*** #####
-  | Given | When | Then
-  |--|--|--|
-  | The page to create a meeting | User finalizes the creation of the meeting | A new meeting is created with a unique id.
-  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to a list of meetings
-  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to the personal schedule of the host
+* ##### ***Acceptance tests:***
+  
+  | Given                        | When                                       | Then                                                      |
+  | ---------------------------- | ------------------------------------------ | --------------------------------------------------------- |
+  | The page to create a meeting | User finalizes the creation of the meeting | A new meeting is created with a unique id.                |
+  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to a list of meetings                |
+  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to the personal schedule of the host |
 
 ### Domain model
 
 The video Session Toolkit intends to help organize a users schedule and conference links.
 
- * Each session has a start date and hour and a finishing hour. It has a title, a video-chat platform, a room link and can either be public (part of the conference) or private (between people attending).
- * The calendar olds the sessions.
- * Each user has a profile which olds information about the sessions he'll attend as well as the sessions created with other users (private sessions).
+* Each session has a start date and hour and a finishing hour. It has a title, a video-chat platform, a room link and can either be public (part of the conference) or private (between people attending).
+* The calendar olds the sessions.
+* Each user has a profile which olds information about the sessions he'll attend as well as the sessions created with other users (private sessions).
 
 <img src="./tables%20and%20diagrams/domain_model.png">
-
 
 ---
 
 ## Architecture and Design
 
 The program follows an MVC approach. The database and its querys are independent of its design and of the rendering. The screens translate into different states of the application and the screen buttons are widgets that redirect application to other states. All querys to the database are asyncronous.
-
 
 ### Logical architecture
 
@@ -385,6 +382,27 @@ The technologies used in this project were Flutter-Dart as the framework for our
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).-->
 
 ### Prototype
+<img style="float: right" src="./prototype.gif" alt="" width="150">  
+
+This prototype reflects some of the major user stories:  
+
+* The login page
+
+* The profile page
+
+* The calendar
+
+* Adding, removing, creating and editting events
+
+* Private and public sessions/meetings  
+
+* Ability to choose the paltform for the meeting
+
+* And the overall usage flow  
+
+
+
+
 
 <!--To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
 
@@ -401,6 +419,7 @@ All releases can be found in the [Releases page](https://github.com/FEUP-ESOF-20
 ## Test
 
 The features that require testing are the following:
+
 * [Create a session](#acceptance-tests-1)
 * [Add a session to calendar](#acceptance-tests-2)
 * [Verify app routes throughout the different screens](#acceptance-tests)
@@ -425,6 +444,7 @@ The project flow was controlled using github. The github flow was followed havin
 ## Project management
 
 In order to manage the project's progress, tasks and team, github projects was used. The board can be found [here](https://github.com/FEUP-ESOF-2020-21/open-cx-t1g5-esoflers/projects/1).
+
 <!--Software project management is an art and science of planning and leading software projects, in which software projects are planned, implemented, monitored and controlled.
 
 In the context of ESOF, we expect that each team adopts a project management tool capable of registering tasks, assign tasks to people, add estimations to tasks, monitor tasks progress, and therefore being able to track their projects.
