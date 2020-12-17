@@ -382,7 +382,7 @@ The technologies used in this project were Flutter-Dart as the framework for our
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).-->
 
 ### Prototype
-<img style="float: right" src="./prototype.gif" alt="" width="150">  
+<img align="right" src="./prototype.gif" alt="" width="150">  
 
 This prototype reflects some of the major user stories:  
 
