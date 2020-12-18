@@ -1,14 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:open_cx/AgendApp.dart';
-import 'package:open_cx/Screens/Menu/mainMenu.dart';
+import 'package:open_cx/globals.dart';
 
-import 'Screens/Login/login.dart';
-import 'Screens/Login/signUp.dart';
-import 'Screens/Schedule/editMeeting.dart';
-import 'Screens/Schedule/schedule.dart';
+import 'View/Authentication/Login.dart';
+import 'View/Authentication/SignUp.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  sessionsDatabase.requestSessions();
+  print("Sessions request length: " + sessionsDatabase.getAllSessions().length.toString());
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color(0xFF9CBDCE), // status bar color
   ));
@@ -16,6 +18,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,9 +29,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) => HomePage(),
-        "/login": (context) => LoginPage(),//CreateMeeting(),//AddMeetingPage(),//EditScheduleMenu(),//MenuPage(),//LoginPage(),
-        "/signUp": (context) => SignUpPage(), //SchedulePage(), //EditMeeting(),//SignUpPage(),
-        //"/agendAppMain": (context) => AgendAppMain()
+        "/login": (context) => LoginPage(),
+        "/signUp": (context) => SignUpPage(),
       },
     );
   }
@@ -68,7 +70,6 @@ class HomePage extends StatelessWidget {
               ),
               MyButton(x: 40, y: 60, title: "Login", onPressed: () => Navigator.of(context).pushNamed("/login")),
               MyButton(x: 40, y: 70, title: "Sign Up", onPressed: () => Navigator.of(context).pushNamed("/signUp")),
-              //MyButton(x: 70, y: 60, title: "AgendAppskkit", onPressed: () => Navigator.of(context).pushNamed("/agendAppMain"))
             ],
           ),
         ),

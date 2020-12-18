@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello/Session.dart';
-import 'Calendar.dart';
+import 'open-cx-master/open-cx-master/open_cx/lib/Screens/Schedule/Calendar.dart';
 
 // Acho que agora funcionou mais ou menos mas está a aparecer uma barra amarela e preta de perigo no android
 // Vou tentar comentar os widgets anteriores para ver se dá
