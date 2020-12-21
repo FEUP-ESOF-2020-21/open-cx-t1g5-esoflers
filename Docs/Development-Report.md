@@ -36,7 +36,7 @@ Pedro Pinto  up201806251@fe.up.pt
 
 ## Product Vision
 
-Making virtual connections easy!
+Making virtual connections easy, bringing people toghether hassle-free.
 
 <!--A product vision describes the essential of the product and sets the direction to where a product is headed, and what the product will deliver in the future. 
 
@@ -62,7 +62,7 @@ To learn more about how to write a good product vision, please see also:
 It's time consuming for hosts and an organizational mess for attendees, who are bombarded with many different links and have to manage several different platforms getting confused in which one each meeting will occur.-->
 
 Video Session Toolkit removes the anxiety from virtual sessions' management.  
-Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more.
+Create meetings fast and easily, keep track of your sessions, join sessions easily and using a single app, create a gathering easily, comunicate changes with the audience instantly and much more. Hosting and participating in a virtual conference as easy as it gets.
 
 ---
 
@@ -382,6 +382,7 @@ The technologies used in this project were Flutter-Dart as the framework for our
 It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for openCX are, for example, frameworks for mobile applications (Flutter vs ReactNative vs ...), languages to program with microbit, and communication with things (beacons, sensors, etc.).-->
 
 ### Prototype
+
 <img align="right" src="./prototype.gif" alt="" width="150">  
 
 This prototype reflects some of the major user stories:  
@@ -399,10 +400,6 @@ This prototype reflects some of the major user stories:
 * Ability to choose the paltform for the meeting
 
 * And the overall usage flow  
-
-
-
-
 
 <!--To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
 
