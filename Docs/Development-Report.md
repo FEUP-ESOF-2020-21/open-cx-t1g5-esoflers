@@ -229,26 +229,6 @@ With Video Session Toolkit participating in interesting sessions at a conference
 
 ### User stories
 
-<!--This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
-
-For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
-
-A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
-
-*As a < user role >, I want < goal > so that < reason >.*
-
-**INVEST in good user stories**. 
-You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
-
-**User interface mockups**.
-After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable.
-
-**Acceptance tests**.
-For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
-
-**Value and effort**.
-At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).-->
-
 #### User story map
 
 ![User story map](./tables%20and%20diagrams/Video_session_toolkit.png)
@@ -315,11 +295,18 @@ At the end, it is good to add a rough indication of the value of the user story 
 * ***Effort:*** XL
 
 * ##### ***Acceptance tests:***
-  
-  | Given                                                 | When                                          | Then                                                        |
-  | ----------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------- |
-  | The page to add a meeting to the personal schedule    | User selects a meeting from existing meetings | A new meeting is added to his personal schedule             |
-  | The page to view a meeting from the personal schedule | User selects the button to delete the meeting | That meeting will no longer appear on the personal calendar |
+
+  ```Gherkin
+  Scenario: Adding a meeting in the calendar
+  When I press the "next" button
+  Then a new meeting is visible in the calendar.
+  ```
+
+  ```Gherkin
+  Scenario: Adding a meeting in the calendar
+  When I press the "delete" button
+  Then the meeting is no longer visible in the calendar.
+  ```
 
 * ***Interface mockups:***
 
@@ -334,12 +321,27 @@ At the end, it is good to add a rough indication of the value of the user story 
 * ***Effort:*** L
 
 * ##### ***Acceptance tests:***
-  
-  | Given                        | When                                       | Then                                                      |
-  | ---------------------------- | ------------------------------------------ | --------------------------------------------------------- |
-  | The page to create a meeting | User finalizes the creation of the meeting | A new meeting is created with a unique id.                |
-  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to a list of meetings                |
-  | The page to create a meeting | User finalizes the creation of the meeting | The meeting is added to the personal schedule of the host |
+
+  ```Gherkin
+  Scenario: Creating a meeting page
+  When I fill-in all the boxes
+   And I press the "next" button
+  Then a new meeting is created with a unique id.
+  ```
+
+  ```Gherkin
+  Scenario: Creating a meeting page
+  When I fill-in all the boxes
+   And I press the "next" button
+  Then a new meeting is visible in the list of meetings.
+  ```
+
+  ```Gherkin
+  Scenario: Creating a meeting page
+  When I fill-in all the boxes
+   And I press the "next" button
+  Then a  new meeting is visible in the calendar.
+  ```
 
 ### Domain model
 
